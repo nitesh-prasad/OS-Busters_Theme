@@ -29,7 +29,7 @@
   <b:skin><![CDATA[
 /* Variable definitions
 -----------------------
-<Variable name="body.background" description="Background" type="background" color="#f0f0f0" default="$(color) url() repeat fixed top left" value="$(color) url(http://1.bp.blogspot.com/-Lms0Sd1K2F0/WgSM4R0ZaJI/AAAAAAAAA9A/Vz5vMgsuUtosr96JpGJC1cUm1E1g1KG7wCK4BGAYYCw/s0/sayagata-400px.png) repeat scroll top left"/>
+<Variable name="body.background" description="Background" type="background" color="#ffffff" default="$(color) url() repeat fixed top left" value="$(color) url(http://1.bp.blogspot.com/-Lms0Sd1K2F0/WgSM4R0ZaJI/AAAAAAAAA9A/Vz5vMgsuUtosr96JpGJC1cUm1E1g1KG7wCK4BGAYYCw/s0/sayagata-400px.png) repeat scroll top left"/>
 <Variable name="slider" description="Slider Background" type="background" color="#fff" default="$(color) url(https://4.bp.blogspot.com/-1Ka1tsvP8No/Wb5N0mxGZ1I/AAAAAAAAADY/Pyd7A1j1HmwW4unF0wwDC2QyeEKaMjhRwCLcBGAs/s1600/pattern.jpg) repeat fixed top left" value="$(color) url(https://4.bp.blogspot.com/-1Ka1tsvP8No/Wb5N0mxGZ1I/AAAAAAAAADY/Pyd7A1j1HmwW4unF0wwDC2QyeEKaMjhRwCLcBGAs/s1600/pattern.jpg) repeat fixed top left"/>
 <Group description="Main Settings" selector="body">
 <Variable name="maincolor" description="Main Color of theme" type="color"  default="#2942ee"  value="#2942ee"/>
