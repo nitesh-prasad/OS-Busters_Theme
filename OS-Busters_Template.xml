@@ -665,7 +665,7 @@ select#BlogArchive1_ArchiveMenu{width:100%;padding:10px;}
 .pixel-recent .pixel-recent-item{overflow:hidden;border-bottom:1px solid $(lightcolor);padding:10px 0}
 .pixel-recent .pixel-recent-item:first-child{padding-top:0}
 .pixel-recent .pixel-recent-item:last-child{border-bottom:none}
-.pixel-recent .pixel-recent-thumb{position:relative;float:left;margin:0!important;width:80px;height:60px;overflow:hidden;display:block;vertical-align:middle}
+.pixel-recent .pixel-recent-thumb{position:relative;float:left;margin:0!important;width:120px;height:100px;overflow:hidden;display:block;vertical-align:middle}
 .pixel-recent .pixel-recent-content{padding-left:10px;display:table-cell}
 .pixel-recent .pixel-recent-title{overflow:hidden;line-height:0;margin:0 0 2px;padding:0}
 .pixel-recent .pixel-recent-title a{color:$maincolor;font-weight:400;font-size:13px;line-height:1.5em}
@@ -691,9 +691,9 @@ select#BlogArchive1_ArchiveMenu{width:100%;padding:10px;}
 /* Popular Post Widget */
 .sidebar .PopularPosts .widget-content ul li:first-child,.sidebar .pixel-recent .pixel-recent-item:first-child{padding-top:0;border-top:0}
 .sidebar .PopularPosts .widget-content ul li:last-child,.sidebar .pixel-recent .pixel-recent-item:last-child{padding-bottom:0}
-.PopularPosts .item-thumbnail{margin:0 15px 0 0 !important;width:80px;height:60px;float:left;overflow:hidden;position:relative}
+.PopularPosts .item-thumbnail{margin:0 15px 0 0 !important;width:120px;height:100px;float:left;overflow:hidden;position:relative}
 .PopularPosts .item-thumbnail a{position:relative;display:block;overflow:hidden;line-height:0}
-.PopularPosts ul li img{width:90px;height:65px;object-fit:cover;padding:0;transition:all .3s ease}
+.PopularPosts ul li img{width:120px;height:100px;object-fit:cover;padding:0;transition:all .3s ease}
 .PopularPosts .widget-content ul li{overflow:hidden;padding:10px 0;border-top:1px solid #f2f2f2}
 .sidebar .PopularPosts .widget-content ul li:first-child,#pixel-sidebar-tabs .PopularPosts .widget-content ul li:first-child{padding-top:0;border-top:0}
 .sidebar .PopularPosts .widget-content ul li:last-child,.sidebar .pixel-recent .pixel-recent-item:last-child,.tab-widget .PopularPosts .widget-content ul li:last-child,.tab-widget .pixel-recent .pixel-recent-item:last-child{padding-bottom:0}
@@ -702,7 +702,7 @@ select#BlogArchive1_ArchiveMenu{width:100%;padding:10px;}
 .PopularPosts .item-title{margin:0 0 4px;padding:0;line-height:0}
 .item-snippet{display:none;font-size:0;padding-top:0}
 .PopularPosts ul{counter-reset:popularcount;margin:0;padding:0}
-.PopularPosts .item-thumbnail::before{background:rgba(0,0,0,0.3);bottom:0;content:"";height:100px;width:100px;left:0;right:0;margin:0 auto;position:absolute;z-index:3}
+.PopularPosts .item-thumbnail::before{background:rgba(0,0,0,0.3);bottom:0;content:"";height:100px;width:120px;left:0;right:0;margin:0 auto;position:absolute;z-index:3}
 
 /* Comment Widget */
 .pixel-comments .pixel-comment .pixel-comment-profile{position:relative;overflow:hidden;padding:0;width:55px;height:55px;float:left;margin:0 10px 0 0}
