@@ -305,7 +305,7 @@ li.hasSubmenu.isMega > ul{position: absolute;width: 100%;left:0px;right:0px;}
 .custwid .widget h2.title{box-sizing: border-box;}
 .custwid .widget{position: relative;}
 .custwid .widget .pixel-right-all{position: absolute;right: 0px;top:8px;}
-.custwid .widget .pixel-right-all a{color: $(maincolor)}
+.custwid .widget .pixel-right-all a{color:#a2a2a2}
 .pixel-right-all a{text-transform: capitalize;font-weight:400;}
 object.pixel-widget{padding: 30px 0px;display: block;width: 100%;}
 
