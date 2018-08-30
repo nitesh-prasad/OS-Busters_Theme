@@ -617,8 +617,8 @@ body.index #blog-pager, body.archive #blog-pager{background-color: $(lightcolor)
 .pixel-sidebar-tab{display:flex;clear:both;padding:0;margin:0}
 .pixel-sidebar-tabs .widget h2{display:none}
 .pixel-sidebar-tab li{width:33.3%;float:left;display:inline-block;padding:0;position:relative}
-.pixel-sidebar-tab li a{font-family: 'Poppins', sans-serif;height: 32px;text-align: center;padding: 0;font-weight: 400;display: block;color: $(maincolor);font-size: 14px;line-height: 32px;letter-spacing: 1.5px;text-transform: uppercase;border-bottom: 2px solid $(lightcolor);}
-.pixel-sidebar-tab li.active a{color: $(maincolor);border-bottom: 2px solid $(maincolor);}
+.pixel-sidebar-tab li a{font-family:'Poppins', sans-serif;height:32px;text-align:center;padding:0;font-weight:400;display:block;color:$darkcolor;font-size:14px;line-height:32px;letter-spacing:1.5px;border-bottom:2px solid #eee;}
+.pixel-sidebar-tab li.active a{color:#fff;background-color:$secncolor;border-bottom:2px solid $secncolor}
 .pixel-sidebar-tab li{display:none}
 .pixel-hide{display:inline-block!important}
 #tabside3{margin-bottom:15px}
@@ -668,7 +668,7 @@ select#BlogArchive1_ArchiveMenu{width:100%;padding:10px;}
 .pixel-recent .pixel-recent-thumb{position:relative;float:left;margin:0!important;width:120px;height:100px;overflow:hidden;display:block;vertical-align:middle}
 .pixel-recent .pixel-recent-content{padding-left:10px;display:table-cell}
 .pixel-recent .pixel-recent-title{overflow:hidden;line-height:0;margin:0 0 2px;padding:0}
-.pixel-recent .pixel-recent-title a{color:$maincolor;font-weight:400;font-size:13px;line-height:1.5em}
+.pixel-recent .pixel-recent-title a{color:$darkcolor;font-weight:600;font-size:13px;line-height:1.5em}
 .pixel-recent .pixel-recent-title a:hover{color:$maincolor}
 .pixel-recent .pixel-recent-thumb:hover .pixel-trap{background-color:rgba(40,35,40,0.3)}
 
@@ -697,10 +697,10 @@ select#BlogArchive1_ArchiveMenu{width:100%;padding:10px;}
 .PopularPosts .widget-content ul li{overflow:hidden;padding:10px 0;border-top:1px solid #f2f2f2}
 .sidebar .PopularPosts .widget-content ul li:first-child,#pixel-sidebar-tabs .PopularPosts .widget-content ul li:first-child{padding-top:0;border-top:0}
 .sidebar .PopularPosts .widget-content ul li:last-child,.sidebar .pixel-recent .pixel-recent-item:last-child,.tab-widget .PopularPosts .widget-content ul li:last-child,.tab-widget .pixel-recent .pixel-recent-item:last-child{padding-bottom:0}
-.PopularPosts ul li a{color:$maincolor;font-weight:400;font-size:13px;line-height:1.4em;transition:color .3s;font-family:'Poppins', sans-serif;letter-spacing:1.5px}
-.PopularPosts ul li a:hover{color:#a0d3db}
+.PopularPosts ul li a{color:$darkcolor;font-weight:600;font-size:13px;line-height:1.4em;transition:color .3s;font-family:'Poppins', sans-serif;letter-spacing:1.5px}
+.PopularPosts ul li a:hover{color:$maincolor}
 .PopularPosts .item-title{margin:0 0 4px;padding:0;line-height:0}
-.item-snippet{display:none;font-size:0;padding-top:0}
+.item-snippet{font-size:12px;line-height:14px;color:#8e8e95;padding-top:5px;}
 .PopularPosts ul{counter-reset:popularcount;margin:0;padding:0}
 .PopularPosts .item-thumbnail::before{background:rgba(0,0,0,0.3);bottom:0;content:"";height:100px;width:120px;left:0;right:0;margin:0 auto;position:absolute;z-index:3}
 
@@ -709,9 +709,9 @@ select#BlogArchive1_ArchiveMenu{width:100%;padding:10px;}
 .pixel-comments .pixel-comment{background:none!important;clear:both;list-style:none;word-break:break-all;display:block;border-top:1px solid $(lightcolor);border-bottom:0!important;overflow:hidden;margin:0;padding:10px 0}
 .pixel-comments .pixel-comment:first-child{padding-top:0;border-top:0}
 .pixel-comments .pixel-comment:last-child{padding-bottom:0}
-.pixel-comments .pixel-comment span{color:#4b4b55;display:block;line-height:1.2em;text-transform:pixel-footercase;font-size:12px;font-weight:400;overflow:hidden;background:$(lightcolor);height:38px;margin-top:5px;box-sizing:border-box;padding:5px 8px}
+.pixel-comments .pixel-comment span{color:#bdbdbd;display:block;line-height:1.2em;text-transform:lowercase;font-size:12px;font-style:italic;font-weight:400;overflow:hidden;background:#f9f9f9;height:38px;margin-top:5px;box-sizing:border-box;padding:5px 8px}
 .pixel-comment-thumb{width:55px;height:55px;float:left;margin:0 10px 0 0}
-.pixel-comments a{color:$maincolor;position:relative;font-size:13px;text-transform:capitalize;display:block;overflow:hidden;font-weight:400}
+.pixel-comments a{color:$darkcolor;position:relative;font-size:13px;text-transform:capitalize;display:block;overflow:hidden;font-weight:400}
 .pixel-comments a:hover{color:$maincolor}
 .pixel-comments{list-style:none;padding:0}
 
