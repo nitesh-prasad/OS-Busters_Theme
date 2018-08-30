@@ -376,6 +376,7 @@ article.pixel-post{padding: 0px;}
 .pixel-parentover:hover .pixel-post-share{opacity: 1;transition: .2s all ease-in-out;}
 .pixel-post-share a:hover{color: $maincolor}
 .pixel-widget.list .pixel-widget-col-1 h3.entry-title a{font-weight:600;line-height:42px;font-size: 18px;color:rgb(47, 47, 51);}
+.pixel-widget.list .pixel-widget-col-1 h3.entry-title a:hover{color:$maincolor}
 .pixel-widget.list .pixel-widget-col-1 .article-meta span a{color: rgb(142, 142, 149);font-weight: 400;font-size: 12px;}
 .pixel-widget.list .pixel-widget-col-1 .article-meta span i{color: rgb(142, 142, 149);font-weight: 400;font-size: 17px;padding:0px 4px}
 .pixel-widget.list .pixel-widget-col-1 .article-meta{padding-bottom: 10px;}
