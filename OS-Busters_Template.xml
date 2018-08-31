@@ -2073,7 +2073,8 @@ loadCSS("//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css");
 		</b:if>
   <b:else/>
   <style>.hidden{display:none;}</style>
-  <div class='meta-pixel' id='hpick'>
+  <div class='hidden' id='hpick'>
+  </div>
 
 <div class='posttitle pixel-wrapper'>
 	<div class='postmarg'>
@@ -2095,7 +2096,7 @@ loadCSS("//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css");
                         </a>
    					</span>
 				</div>
-  </div></div>
+  </div>
 </div>
 <script>$=jQuery,$(&quot;.format-date&quot;).map(function(){var e=$(this).attr(&quot;datetime&quot;),t=[&quot;January&quot;,&quot;February&quot;,&quot;March&quot;,&quot;April&quot;,&quot;May&quot;,&quot;June&quot;,&quot;July&quot;,&quot;August&quot;,&quot;September&quot;,&quot;October&quot;,&quot;November&quot;,&quot;December&quot;][(e=(e=e.split(&quot;T&quot;))[0].split(&quot;-&quot;))[1]-1]+&quot; &quot;+e[2]+&quot;, &quot;+e[0];$(this).html(t),$(this).removeClass(&quot;.format-date&quot;)});</script>
 <script>
