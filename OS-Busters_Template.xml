@@ -2073,30 +2073,10 @@ loadCSS("//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css");
 		</b:if>
   <b:else/>
   <style>.hidden{display:none;}</style>
-  <div class='hidden' id='hpick'>
-    <b:if cond='data:post.firstImageUrl'>
-      &lt;style&gt;.gradient{background:url(<data:post.firstImageUrl/>);}
-.gradient{position: absolute;left: 0px;top:0px;height: 100%;width: 100%;background-size:cover;background-position:center center;}
-.posttitle {position: relative;height:60vh;min-height:400px;}
-.gradient:after{content: &quot;&quot;;position: absolute;top: 0px;bottom: 0px;left: 0px;right: 0px;background: rgba(0, 0, 0, 0) linear-gradient(to bottom, transparent 0%, transparent 0%, rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.1) 100%) repeat scroll 0 0;display: block;height: 100%;}
-.postmarg{box-sizing: border-box;padding: 20px;text-align: center;position: absolute;bottom: 0px;width: 100%;}
-.postmarg .entry-title{color: #fff}
-a.postmarg .article-meta, .postmarg .article-meta a,.postmarg .article-meta i{color: #fff}
-&lt;/style&gt;
-      <b:else/>
-      &lt;style&gt;.gradient{background:url(https://4.bp.blogspot.com/-wPwjv7-YYGY/Wc98wlDT8qI/AAAAAAAAAEE/mH8YkPl8qJAH9FMuFKcShQvXXYMmVyrIgCLcBGAs/s1600/notfound.png);}
-.gradient{position: absolute;left: 0px;top:0px;height: 100%;width: 100%;background-size:cover;background-position:center center;}
-.posttitle {position: relative;height:60vh;min-height:400px;}
-.gradient:after{content: &quot;&quot;;position: absolute;top: 0px;bottom: 0px;left: 0px;right: 0px;background: rgba(0, 0, 0, 0) linear-gradient(to bottom, transparent 0%, transparent 0%, rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.1) 100%) repeat scroll 0 0;display: block;height: 100%;}
-.postmarg{box-sizing: border-box;padding: 20px;text-align: center;position: absolute;bottom: 0px;width: 100%;}
-.postmarg .entry-title{color: #fff}
-a.postmarg .article-meta, .postmarg .article-meta a,.postmarg .article-meta i{color: #fff}
-&lt;/style&gt;
-    </b:if>
+  <div class='meta-pixel' id='hpick'>
 
-<div class='posttitle pixel-wrapper slidebg'>
-  <div class='gradient'/>
-	<div class='postmarg body-row midalizer'>
+<div class='posttitle pixel-wrapper'>
+	<div class='postmarg'>
 				<span class='post-cat'><b:if cond='data:top.showPostLabels and data:post.labels'><b:loop values='data:post.labels' var='label'><a class='pixel-max-limit' expr:href='data:label.url' expr:title='&quot;View all posts in &quot; + data:label.name'><data:label.name/></a></b:loop></b:if></span>
     		  <div class='entry-header clearfix'>
                  <h3 class='entry-title'><data:post.title/></h3>
