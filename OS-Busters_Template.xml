@@ -336,7 +336,7 @@ object.pixel-widget{padding: 30px 0px;display: block;width: 100%;}
 .pixel-gallery-post h3{padding: 10px 0px;line-height:18px;}
 .clearfix{clear:both;}
 .pixel-gallery-feature .regular.feature-image:after, .pixel-gallery-post .playing.regular.img_dyn:after{display:none !important;}
-.owl-nav{position: absolute;width:100%;top:0px;font-size:20px;color:#fff;display:none;opacity:0;transition:.2s all ease-in-out}
+.owl-nav{position: absolute;width:100%;top:0px;font-size:20px;color:#fff;display:block;opacity:0.5;transition:.2s all ease-in-out}
 .owl-nav .owl-next{right: 10px;position: absolute;top:58px;}
 .owl-nav .owl-prev{left:5px;position: absolute;top:58px;}
 .owl-nav .owl-prev,.owl-nav .owl-next{background:$maincolor; width: 25px; height: 25px;text-align: center;line-height: 26px;}
