@@ -3176,11 +3176,7 @@ head.appendChild(script);
         <div class='pixel-cwrap body-row'>
          
                     <div class='pixel-credit_copyright'>
-                      Copyright 2017, <a expr:href='data:blog.homepageUrl'><data:blog.title/></a>. All rights Reserved.</div> |  Designed by <a href='http://colorlib.com/'>Colorlib</a>
-                
-               
-              
-                    
+                      Copyright © 2017, <a expr:href='data:blog.homepageUrl'><data:blog.title/></a>. All rights Reserved.</div>
         </div>
     </div>
 
