@@ -741,6 +741,11 @@ select#BlogArchive1_ArchiveMenu{width:100%;padding:10px;}
 /* 404 */
 .error_page .padders button{height:50px;background:$(maincolor);color:#fff;border:none;position:absolute;border-radius:0;left:0px;border-top-left-radius:0px;border-bottom-left-radius:0px;float:left;font-size:20px;padding:12px 30px 10px;}
 
+/*404 Custom Error Page*/
+.text-wrapper{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#f5f5f5;text-align:center;}
+.title{font-size:6em;font-weight:700;color:$maincolor;padding:80px 20px 20px;}
+.subtitle{font-size:40px;font-weight:700;color:$darkcolor;padding:40px 20px 60px;}
+
 /* Message Top */
 .messager-text h1 a{float:right;font-size:14px;font-weight:400;line-height:16px;border:1px solid $(maincolor);padding:15px 20px;background:$(lightcolor);transition:0s all ease-in-out;}
 .messager-text h1 a:hover{background:$(maincolor);color:#fff;transition:0s all ease-in-out;}
@@ -1333,8 +1338,7 @@ loadCSS("//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css");
 <!--ERROR PAGE-->
 <style>
 #content-wrapper{display: none;}
-.error_page .padders{padding-top: 60px;padding-bottom: 60px;margin-bottom: 30px;}
-.error_page .slidebg h2{font-weight: 600;font-size: 36px;line-height:40px;}
+.error_page .padders{padding-top: 40px;padding-bottom: 60px;margin-bottom: 30px;}
 .error_page .padders form{display:block;max-width:800px;}
 .error_page .padders form .input-group{padding-right:75px;}
 .error_page .padders p{padding:20px 0px;}
@@ -1345,15 +1349,21 @@ loadCSS("//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css");
   .error_page .padders form .input-group input{width: 80%;}
 }
 @media only screen and (max-width:520px){
-  .error_page .slidebg h2{font-size:24px; line-height:28px;}
-  .error_page .padders{padding:20px 10px;}
+  .error_page .padders{padding:0px 10px 20px;}
 }
 </style>
-<div class='pixel-wrapper padders slidebg'>
-  <div class='body-row midalizer'>
-    <h2 class='emsg'>Oops! That page can&#8217;t be found.</h2>
+<div class='body-row midalizer'>
+    <div class='text-wrapper'>
+       <div class='title' data-content='404'>
+        404
+       </div>
+
+       <div class='subtitle'>
+          <h2>Oops! That page can&#8217;t be found.</h2>
+       </div>
+    </div>
 </div>
-</div>
+
 <div class='pixel-wrapper padders'>
   <div class='body-row midalizer'>
     <p>It looks like nothing was found at this location. Maybe try a search?</p>
