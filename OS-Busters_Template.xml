@@ -101,7 +101,7 @@ article{padding:0;overflow:hidden}
 .pixel-social{float:right;padding:5px 0}
 .pixel-social li{display:inline;padding:0;float:left;margin-right:5px}
 .pixel-social .widget ul{padding:0}
-.pixel-social .LinkList ul{text-align:center;margin:0 20px 0 0}
+.pixel-social .LinkList ul{text-align:center;}
 .pixel-social #social a{display:block;width:30px;height:30px;line-height:30px;font-size:14px;color:#fff;transition:background .3s linear;-moz-transition:background .3s linear;-webkit-transition:background .3s linear;-o-transition:background .3s linear}
 .pixel-social #social a:before{display:inline-block;font:normal normal normal 22px/1 FontAwesome;font-size:inherit;font-style:normal;font-weight:400;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 .pixel-social .bloglovin:before{content:"\f004"}
