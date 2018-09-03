@@ -665,10 +665,10 @@ select#BlogArchive1_ArchiveMenu{width:100%;padding:10px;background:#f9f9f9}
 .FollowByEmail .follow-by-email-inner .follow-by-email-address:focus{border:1px solid #FFF}
 .FollowByEmail .widget-content{box-sizing:border-box;padding:10px}
 .pixel-fcols-inner .FollowByEmail .widget-content{margin-top:10px}
-.widget.FollowByEmail .widget-content:before{content: "\f1d9";font-family: FontAwesome;width: 100%;display: inline-block;text-align: center;font-size:30px;padding: 5px 0px;color:#757575;}
-.FollowByEmail .widget-content .follow-by-email-inner:before {content: "Get the latest news in your inbox!";font-size: 14px;color: #757575;line-height: 1.4em;margin-bottom: 5px;display: block;padding: 0 2px;text-align: center;padding-bottom: 5px}
+.widget.FollowByEmail .widget-content:before{content: "\f0e0";font-family: FontAwesome;width: 100%;display: inline-block;text-align: center;font-size:34px;padding: 5px 0px;color:##f5f5f5;}
+.FollowByEmail .widget-content .follow-by-email-inner:before {content: "Get the latest news in your inbox!";font-size: 14px;color: #f1f1f1;line-height: 1.4em;margin-bottom: 5px;display: block;padding: 0 2px;text-align: center;padding-bottom: 5px}
 .FollowByEmail .follow-by-email-inner .follow-by-email-address{border: 1px solid $(lightcolor) ;font-size:13px;box-sizing:border-box;margin-top:10px;}
-.FollowByEmail .follow-by-email-inner .follow-by-email-submit{background: $(lightcolor) ;color: #000;font-size:12px;font-weight: 400;margin-top:5px;}
+.FollowByEmail .follow-by-email-inner .follow-by-email-submit{background: $(maincolor) ;color: #fff;font-size:12px;font-weight: 400;margin-top:5px;}
 .FollowByEmail .follow-by-email-inner .follow-by-email-submit:hover{background: $maincolor;color: #fff;}
 .FollowByEmail .follow-by-email-inner .follow-by-email-address:focus{border: 1px solid $(lightcolor) ;}
 
