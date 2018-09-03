@@ -457,7 +457,7 @@ div.pixel-empty{width: 100%;text-align:center;background:rgb(236,239,241);box-si
 .post-body img{max-width:100%;padding:10px 0;position:relative;margin:0 auto}
 .comment-link{white-space:normal}
 .postmarg{padding: 20px 0px !important;}
-.postmarg h3{font-size:36px;line-height:44px;padding: 10px 0px;font-weight: 600;letter-spacing:0.3px}
+.postmarg h1{font-size:36px;line-height:44px;padding: 10px 0px;font-weight: 600;letter-spacing:0.3px}
 .postmarg .article-meta, .postmarg .article-meta a{color: #8e8e95; font-weight: 400;}
 .postmarg .article-meta a{font-size: 12px;margin-right: 15px;}
 .postmarg .article-meta i{font-size: 15px;}
@@ -855,7 +855,7 @@ form input[type='text']:hover,#pixel-footer form input[type='text']:hover,#pixel
 }
 @media only screen and (max-width:520px){
   .pixelfeatured .pixel-hero .pixelfeatured-thumb, .pixelfeatured .blsm-img,.pixl .pixel-featured .pixel-secondary .pixelfeatured-thumb, .pixl .pixel-featured .pixel-secondary .pixel-thumb{height: 300px !important;}
- .postmarg h3{font-size: 24px;line-height:32px;}
+ .postmarg h1{font-size: 24px;line-height:32px;}
   .postmarg {padding: 20px 0px !important;}
   .pixel-left-tags,.pixel-right-share{float: none;width: 100%;margin: 8px 0px;}
   .pixel-post-author .post-author .author-img{padding-right: 0;text-align: center;}
@@ -2124,7 +2124,7 @@ loadCSS("//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css");
 	<div class='postmarg'>
 				<span class='post-cat'><b:if cond='data:top.showPostLabels and data:post.labels'><b:loop values='data:post.labels' var='label'><a class='pixel-max-limit' expr:href='data:label.url' expr:title='&quot;View all posts in &quot; + data:label.name'><data:label.name/></a></b:loop></b:if></span>
     		  <div class='entry-header clearfix'>
-                 <h3 class='entry-title'><data:post.title/></h3>
+                 <h1 class='entry-title'><data:post.title/></h1>
 			   </div>
                <div class='article-meta clearfix'>
 					<span class='byline'>
