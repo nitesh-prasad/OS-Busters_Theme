@@ -631,7 +631,7 @@ body.index #blog-pager, body.archive #blog-pager{background-color: $(lightcolor)
 .pixel-sidebar-tabs .widget-content{padding:15px 0 0}
 
 /* Blog Archive */
-select#BlogArchive1_ArchiveMenu{width:100%;padding:10px;}
+select#BlogArchive1_ArchiveMenu{width:100%;padding:10px;background:#f9f9f9}
 .BlogArchive select{border:1px solid #f7f7f7 !important}
 
 /* Advertisement Widget */
