@@ -905,15 +905,16 @@ h1.post-title{font-size:17px}
 #Header1 h1, #Header1 h1 a{font-weight: 800;font-size:40px;color: #222;}
 .pixel-center-header{ border-bottom: 1px solid $(lightcolor) ;}
 .pixel-navigation{border-bottom: 1px solid $(lightcolor) ;}
-.search-transition-wrap{display:none;background:rgba(20, 22, 24, 0.95);bottom:0;height:100%;left:0;position:fixed;right:0;top:0;width:100% !important;-webkit-transition:0.1s;-o-transition:0.1s;transition:0.1s;z-index:99999;}
-.search-transition-wrap .search-transition-inner{padding:0 25%;position:absolute;text-align:center;top:50%;width:100%;border:none !important;box-sizing:border-box;}
-.search-transition-wrap .searchform .input-group, .search-transition-wrap .woocommerce-product-search .input-group{border-bottom:1px solid #fff;padding:0 !important;}
-.search-transition-wrap .searchform .form-control, .search-transition-wrap .woocommerce-product-search .form-control{background:none;border:none;font-size:20px;color:#FFF;height:50px;padding:0;}
-.search-transition-wrap .searchform .form-control{width:100%;box-sizing:border-box;padding-right:60px;font-family: Poppins;font-size: 30px;}
+.search-transition-wrap{display:none;background:#ffffff;bottom:0;height:100%;position:absolute;right:0;top:60px;width:280px !important;-webkit-transition:0.0s;-o-transition:0.0s;transition:0.0s;z-index:99999;border-radius:4px;border:1px solid $lightcolor}
+.search-transition-wrap .search-transition-inner{padding:0px 10px 0px 10px;position:absolute;text-align:center;width:100%;border:none !important;box-sizing:border-box;}
+.search-transition-wrap .searchform .input-group, .search-transition-wrap .woocommerce-product-search .input-group{border-bottom:1px solid #ddd;padding:0 !important;margin-top:-2px;width:200px}
+.search-transition-wrap .searchform .form-control, .search-transition-wrap .woocommerce-product-search .form-control{background:none;border:none;font-size:20px;color:$darkcolor;height:41px;padding:0;}
+.search-transition-wrap .searchform .form-control{width:100%;box-sizing:border-box;padding-right:5px;padding-left:8px;margin-top:10px;font-family: Poppins;font-size: 12px;}
 .search-transition-wrap .input-group-btn button{position:absolute;right:0px;top:10px;border:0px;color:#fff;background:rgba(0,0,0,0);}
-.search-transition-wrap .input-group-btn button:before{font-family:"Ionicons";content:"\f4a5";font-size:25px;padding:10px;}
+.search-transition-wrap .input-group-btn button:before{font-family:"Ionicons";content:"\f4a5";font-size:20px;padding:10px;}
+.search-transition-wrap .input-group-btn:not(:first-child)>.btn:first-child{background:$maincolor !important;cursor:pointer;margin-right:-60px}
 .search-transition-wrap form > .input-group{position:relative;}
-.search-transition-wrap .btn-mini-close{background:rgba(0, 0, 0, 0) none repeat scroll 0 0;border:medium none;color:#fff !important;font-size:35px;position:fixed;top:50px;right:50px;margin-right:0px;opacity:1;-webkit-transition:0.4s;-o-transition:0.4s;transition:0.4s;}
+.search-transition-wrap .btn-mini-close{background:#ffffff none repeat scroll 0 0;border:medium none;color:$darkcolor !important;font-size:35px;position:absolute;bottom:63px;right:12px;margin-right:0px;opacity:1;-webkit-transition:0.4s;-o-transition:0.4s;transition:0.4s;}
 .search-transition-wrap .btn-mini-close:hover{cursor:pointer;}
 .midalizer{
 margin: 0 auto;
@@ -975,7 +976,6 @@ loadCSS("//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css");
 </head>
 <body expr:class='data:blog.pageType'>
 
-<div class='searchform-wrap search-transition-wrap'><div class='search-transition-inner'><form action='/search' class='searchform' method='get'><div class='input-group'> <input class='form-control' name='q' placeholder='Search ... ' type='text' value=''/> <span class='input-group-btn'> <button class='btn btn-primary'><i class='ti-search'/></button> </span></div></form>                                <button class='btn-mini-close pull-right'><i class='ion-ios-close-empty'/></button></div></div>
 <div class='adminbar' style='display:none'>
 <div class='theme-opt'>
     <b:section class='option' id='option' maxwidgets='1' name='Layout Setup' preferred='no' showaddelement='no'>
@@ -1280,6 +1280,7 @@ loadCSS("//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css");
           </b:widget>
         </b:section>
   <div class='pixel-search-btn'><span><a class='pixel-serch'/></span></div>
+  <div class='searchform-wrap search-transition-wrap'><div class='search-transition-inner'><form action='/search' class='searchform' method='get'><div class='input-group'> <input class='form-control' name='q' placeholder='Search ... ' type='text' value=''/> <span class='input-group-btn'> <button class='btn btn-primary'><i class='ti-search'/></button> </span></div></form>                                <button class='btn-mini-close pull-right'><i class='ion-ios-close-empty'/></button></div></div>
   </div>
       </div>
 <div style='clear: both;'/>
