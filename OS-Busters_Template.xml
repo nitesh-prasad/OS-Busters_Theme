@@ -400,6 +400,7 @@ article.pixel-post{padding: 0px;}
 .pixel-widget.list .pixel-widget-col-2 .pixel-post .article-content .article-meta{color: rgb(142, 142, 149);padding-top:5px; display: table;}
 .pixel-widget.list .pixel-widget-col-2 .pixel-post .article-content .article-meta .entry-date{color: rgb(142, 142, 149);font-weight: 400;font-size:12px;}
 .pixel-widget.list .pixel-widget-col-2 a:hover{color:$maincolor}
+.pixel-widget.gallery{width:100%;margin-right:15px}
 img.pixel-empty{max-width: 250px;}
 div.pixel-empty{width: 100%;text-align:center;background:rgb(236,239,241);box-sizing:border-box;padding:50px 0px;}
 .pixel-no-title h3{font-weight: 600;}
@@ -1479,7 +1480,7 @@ loadCSS("//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css");
       <b:if cond='data:blog.url == data:blog.homepageUrl'><div class='custwid col-md-12'><div class='widget'><div class='pixel-widwrap'><h2>Latest News</h2></div></div></div></b:if>
 
 <b:if cond='data:numPosts == 0'>
-        <div class='pixel-widget gallery'><div class='pixel-empty'><div class='pixel-no-post'><div class='pixel-entry-no-icon'><img alt='pixel-empty' class='pixel-empty' src='https://4.bp.blogspot.com/-wPwjv7-YYGY/Wc98wlDT8qI/AAAAAAAAAEE/mH8YkPl8qJAH9FMuFKcShQvXXYMmVyrIgCLcBGAs/s1600/notfound.png'/></div><div class='pixel-no-title'><h3 class='pixel-postmatch'>No posts found.</h3></div></div></div></div>
+        <div class='pixel-widget gallery'><div class='pixel-empty'><div class='pixel-no-post'><div class='pixel-entry-no-icon'><img alt='pixel-empty' class='pixel-empty' src='https://4.bp.blogspot.com/-wPwjv7-YYGY/Wc98wlDT8qI/AAAAAAAAAEE/mH8YkPl8qJAH9FMuFKcShQvXXYMmVyrIgCLcBGAs/s1600/notfound.png'/></div><div class='pixel-no-title'><h3 class='pixel-postmatch'>No results found.</h3></div></div></div></div>
       </b:if>
 
       <b:loop values='data:posts' var='post'>
