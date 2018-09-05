@@ -750,7 +750,10 @@ select#BlogArchive1_ArchiveMenu{width:100%;padding:10px;background:#f9f9f9}
 /*404 Custom Error Page*/
 .text-wrapper{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#f5f5f5;text-align:center;}
 .title{font-size:6em;font-weight:700;color:$maincolor;padding:80px 20px 20px;}
-.subtitle{font-size:40px;font-weight:700;color:$darkcolor;padding:40px 20px 60px;}
+.subtitle{font-size:40px;font-weight:700;color:$darkcolor;padding:40px 20px 30px;}
+.buttons{margin: 30px;margin-bottom:80px}
+.buttons a.button{font-weight: 700;border: 2px solid $maincolor;text-decoration: none;padding: 15px;text-transform: uppercase;color: $maincolor;border-radius: 28px;transition: all 0.2s ease-in-out;}
+.buttons a.button:hover {background-color: $maincolor;color:#fff;transition: all 0.2s ease-in-out;}
 
 /* Message Top */
 .messager-text h1 a{float:right;font-size:14px;font-weight:400;line-height:16px;padding:15px 20px;margin:5px;background:$(maincolor);color:#fff;border-radius:5px;transition:0s all ease-in-out;}
@@ -1369,6 +1372,9 @@ loadCSS("//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css");
 
        <div class='subtitle'>
           <h2>Oops! That page can&#8217;t be found.</h2>
+       </div>
+       <div class='buttons'>
+        <a class='button' expr:href='data:blog.homepageUrl'>Go to homepage</a>
        </div>
     </div>
 </div>
