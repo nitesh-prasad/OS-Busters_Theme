@@ -351,7 +351,7 @@ ol{padding-left: 20px;box-sizing:border-box;width:100%;}
 
 /* Custom List widget */
 .pixel-box-list{padding: 0px 15px;margin-top:-15%;position: relative;}
-.pixel-box-inside{background: #fff;padding: 20px 20px;box-sizing: border-box;border:1px solid $lightcolor;border-radius:5px}
+.pixel-box-inside{background: #fff;padding: 20px 20px;margin-bottom:20px;box-sizing: border-box;border:1px solid $lightcolor;border-radius:5px}
 .pixel-hero .blsm-img::after, .pixl .pixel-featured .pixel-secondary .pixel-thumb::after{content: "";position: absolute;top: 0px;bottom: 0px;left: 0px;right: 0px;background: rgba(0, 0, 0, 0) linear-gradient(to bottom, transparent 0%, transparent 0%, rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.1) 100%) repeat scroll 0 0;display: block;height: 100%;}
 .grid-item:hover .pixel-article .pixel-bgr{background: rgba(0, 0, 0, 0.5);opacity: 1;transition:.6s all ease;}
 /* .grid-item .post-cat{filter: blur(30px);opacity: 0;transition:.6s all ease;} */
