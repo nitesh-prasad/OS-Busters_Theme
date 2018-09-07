@@ -33,7 +33,7 @@
 <Variable name="slider" description="Slider Background" type="background" color="#fff" default="$(color) url(https://4.bp.blogspot.com/-1Ka1tsvP8No/Wb5N0mxGZ1I/AAAAAAAAADY/Pyd7A1j1HmwW4unF0wwDC2QyeEKaMjhRwCLcBGAs/s1600/pattern.jpg) repeat fixed top left" value="$(color) url(https://4.bp.blogspot.com/-1Ka1tsvP8No/Wb5N0mxGZ1I/AAAAAAAAADY/Pyd7A1j1HmwW4unF0wwDC2QyeEKaMjhRwCLcBGAs/s1600/pattern.jpg) repeat fixed top left"/>
 <Group description="Main Settings" selector="body">
 <Variable name="maincolor" description="Main Color of theme" type="color"  default="#4be695"  value="#4be695"/>
-<Variable name="lightcolor" description="Light Color of theme" type="color"  default="#f7f7f7"  value="#e4e4e4"/>
+<Variable name="lightcolor" description="Light Color of theme" type="color"  default="#f1f1f1"  value="#f1f1f1"/>
 <Variable name="darkcolor" description="Dark Color of theme" type="color"  default="#2f2f33"  value="#2f2f33"/>
 <Variable name="secncolor" description="Widget Title" type="color"  default="#e43955"  value="#e43955"/>
 <Variable name="accentcolor" description="Accent Color" type="color"  default="#4be695"  value="#4be695"/>
@@ -481,7 +481,7 @@ div.pixel-empty{width: 100%;text-align:center;background:rgb(236,239,241);box-si
 .pixel-advertising{box-sizing: border-box;padding: 10px 0px;text-align: center;margin:10px 0px;}
 
 /* Post Author Bottom */
-.pixel-post-author .post-author{display:table;overflow:hidden;padding:30px 0px;width:100%;margin-top:10px;border-top:1px solid #f1f1f1;border-bottom:1px #f1f1f1;}
+.pixel-post-author .post-author{display:table;overflow:hidden;padding:30px 0px;width:100%;margin-top:10px;border-top:1px solid $lightcolor;border-bottom:1px $lightcolor;}
 .pixel-post-author .author-img{padding-right:20px;}
 .post-outer .post-cat{opacity: 0;filter:blur(30px);}
 .pixel-article .share-links{filter:blur(40px);transition: .8s all ease;opacity:1;}
@@ -666,7 +666,7 @@ select#BlogArchive1_ArchiveMenu{width:100%;padding:10px;background:#f9f9f9}
 .FollowByEmail .widget-content{box-sizing:border-box;padding:10px}
 .pixel-fcols-inner .FollowByEmail .widget-content{margin-top:10px}
 .widget.FollowByEmail .widget-content:before{content: "\f0e0";font-family: FontAwesome;width: 100%;display: inline-block;text-align: center;font-size:34px;padding: 5px 0px;color:##f5f5f5;}
-.FollowByEmail .widget-content .follow-by-email-inner:before {content: "Get the latest news in your inbox!";font-size: 14px;color: #f1f1f1;line-height: 1.4em;margin-bottom: 5px;display: block;padding: 0 2px;text-align: center;padding-bottom: 5px}
+.FollowByEmail .widget-content .follow-by-email-inner:before {content: "Get the latest news in your inbox!";font-size: 14px;color: $lightcolor;line-height: 1.4em;margin-bottom: 5px;display: block;padding: 0 2px;text-align: center;padding-bottom: 5px}
 .FollowByEmail .follow-by-email-inner .follow-by-email-address{border: 1px solid $(lightcolor) ;font-size:13px;box-sizing:border-box;margin-top:10px;}
 .FollowByEmail .follow-by-email-inner .follow-by-email-submit{background: $(maincolor) ;color: #fff;font-size:12px;font-weight: 400;margin-top:5px;}
 .FollowByEmail .follow-by-email-inner .follow-by-email-submit:hover{background: $maincolor;color: #fff;}
