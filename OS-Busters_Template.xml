@@ -19,7 +19,49 @@
 	<meta content='true' name='HandheldFriendly'/>
 	<meta content='yes' name='apple-mobile-web-app-capable'/>
 	<meta content='index,nofollow' name='robots'/>
-	 <meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport'/>
+	<meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport'/>
+
+  <!-- Description and Keywords (start) -->
+    <b:if cond='data:blog.pageType == &quot;index&quot;'>
+    <meta content='YOUR DESCRIPTION HERE' name='description'/>
+    </b:if>
+    <meta content='YOUR KEYWORDS HERE' name='keywords'/>
+  <!-- Description and Keywords (end) -->
+    <b:if cond='data:blog.pageType == &quot;item&quot;'>
+        <meta expr:content='data:blog.pageName' property='og:title'/>
+        <meta expr:content='data:blog.canonicalUrl' property='og:url'/>
+        <meta content='article' property='og:type'/>
+    </b:if>
+    <b:if cond='data:blog.postImageUrl'>
+        <meta expr:content='data:blog.postImageUrl' property='og:image'/>
+    <b:else/>
+    <b:if cond='data:blog.postImageThumbnailUrl'>
+        <meta expr:content='data:blog.postImageThumbnailUrl' property='og:image'/>
+    </b:if></b:if>
+    <b:if cond='data:blog.metaDescription != &quot;&quot;'>
+        <meta expr:content='data:blog.metaDescription' name='og:description'/>
+    </b:if>
+    <meta expr:content='data:blog.title' property='og:site_name'/>
+    <meta expr:content='data:blog.homepageUrl' name='twitter:domain'/>
+    <meta expr:content='data:blog.pageName' name='twitter:title'/>
+    <b:if cond='data:blog.postImageUrl'>
+      <meta content='summary_large_image' name='twitter:card'/>
+      <meta expr:content='data:blog.postImageUrl' name='twitter:image'/>
+    <b:else/>
+      <meta content='summary' name='twitter:card'/>
+      <b:if cond='data:blog.postImageThumbnailUrl'>
+        <meta expr:content='data:blog.postImageThumbnailUrl' name='twitter:image'/>
+      </b:if>
+    </b:if>
+    <meta expr:content='data:blog.pageName' name='twitter:title'/>
+    <b:if cond='data:blog.metaDescription'>
+      <meta expr:content='data:blog.metaDescription' name='twitter:description'/>
+    </b:if>
+    <!-- Social Media meta tag need customer customization -->
+    <meta content='Facebook App ID here' property='fb:app_id'/>
+    <meta content='Facebook Admin ID here' property='fb:admins'/>
+    <meta content='@username' name='twitter:site'/>
+    <meta content='@username' name='twitter:creator'/>   
 
 	<!-- Blogger main head data and meta -->
     <b:include data='blog' name='all-head-content'/>
@@ -92,7 +134,7 @@ body{color:#2e2e2e;font-family:'Poppins', sans-serif;font-size:14px;font-weight:
 #main-wrapper{float:left;width:68%;max-width:800px}
 #sidebar-wrapper{float:right;width:30%;max-width:340px}
 article{padding:0;overflow:hidden}
-.separator a{left-margin:auto !important;right-margin:auto !important}
+.separator a{margin-left:auto !important;margin-right:auto !important}
 
 /* Top Bar*/
 .pixel-top{background:$(darkcolor);border-bottom: 1px solid $(darkcolor);}
@@ -545,8 +587,7 @@ div.pixel-empty{width: 100%;text-align:center;background:rgb(236,239,241);box-si
 .comments-title h2{display:inline-block;position:relative;background-color:#fff;color:#1c1c1c;font-size:18px;letter-spacing:-.4px;text-transform:uppercase;font-weight:700;z-index:1;margin:0;padding-right:15px}
 .comments-title:after{content:"";position:absolute;z-index:0;top:14px;left:0;width:100%;height:5px;background-color:$(lightcolor)}
 .comments{clear:both;margin:0;color:#1c1c1c;background:#fff;padding:10px 0}
-.comments h4{color:#000;font-size:14px;padding:5px 20px;font-weight:700;letter-spacing:1.5px;text-transform:Uppercase;position:relative;text-align:center;background:#fff;z-index:1;margin-bottom:15px}
-.comments h4:after{content:'';position:absolute;bottom:0;left:50%;width:40px;height:2px;background:#000;margin-left:-20px}
+.comments h4{font-size:13px;text-transform:capitalize;font-weight:600;padding:10px 0;margin:0;margin-bottom:15px;border-bottom:1px solid #eee}
 .comments .comments-content{margin:0;padding:0}
 .comments .comments-content .comment{margin-bottom:0;padding-bottom:8px}
 .comments .comments-content .comment:first-child{padding-top:0}
@@ -582,25 +623,27 @@ div.pixel-empty{width: 100%;text-align:center;background:rgb(236,239,241);box-si
 .comments .comment-actions{position: absolute;width: auto;right: 0px;top:10px;margin-bottom:10px}
 .comments .comment-actions a{background: #fff !important;color:#6f6d6d !important;border: 1px solid #eaeaf1 !important;transition: 0s all ease-in-out !important;}
 .comments .comment-actions a:hover{background: $maincolor !important;color: #fff !important;border-color: $maincolor !important;transition: 0s all ease-in-out !important;}
-.comments .comments-content .comment-header{border-bottom: 0px !important;}
-.comments h4{border-bottom: 1px solid #f7f7f7;text-align: left;color: #2f2f33;font-weight: 500;font-size: 18px;}
-.comments h4:after{display: none;}
 
 /* comment tabs */
-.pixel-blogger-comment{display:block}
-.pixel-tabs .content-tab{background-color:transparent;padding:0}
-.pixel-tabs-header{margin-bottom:10px;position:relative}
-.pixel-tabs-header h3{display:inline-block;font-size:18px;margin:0;color:#010101;top:2px;font-weight:500;padding-bottom:2px}
-.pixel-tabs-header h3 h9{display:none}
-.pixel-tabs-header .pixel-tab-wrapper a{height:auto;line-height:1.2em;padding:8px 5px;display:block;text-align:center}
-.pixel-tabs-header .pixel-tab-wrapper li{float:left;width:33%;padding:0}
+.blogger-tab{display:block}
+.cmm-tabs .content-tab{background-color:transparent;padding:0}
+.cmm-tabs-header{background:$darkcolor;height:40px;margin-bottom:0px;position:relative;border-radius:3px;overflow:hidden}
+.cmm-tabs-header ul li{list-style:none}
+.cmm-tabs-header h3{display:inline-block;margin:0;color:#E4E4E4;font-weight:700;text-transform:uppercase;font-size:14px;height:40px;line-height:40px;padding-left:10px}
+.cmm-tabs-header h3 h9{display:none}
+.simplyTab .cmm-tabs-header .wrap-tab{float:right}
+.cmm-tabs-header .wrap-tab a{height:auto;line-height:40px;padding:0px 10px;font-size:14px;display:inline-block}
+.cmm-tabs-header .wrap-tab li{float:left;width:auto}
 .facebook-tab,.fb_iframe_widget_fluid span,.fb_iframe_widget iframe{width:100%!important}
-.pixel-tabs.simplyTab .content-tab{background-color:transparent;padding:0;margin-top:20px}
-.pixel-tabs.simplyTab .pixel-tab-wrapper li a{text-transform:uppercase;color:$darkcolor;font-weight:500;font-size:12px;border-bottom:2px solid #eee;}
-.pixel-tabs.simplyTab .pixel-tab-wrapper li a.activeTab{background-color:$secncolor;color:#fff;border-bottom:2px solid $secncolor}
-.pixel-tabs.simplyTab .pixel-tab-wrapper li{margin:0;list-style:none}
-.pixel-tab-wrapper{list-style:none}
+.cmm-tabs.simplyTab .content-tab{background-color:transparent;padding:0;margin-top:0}
+.cmm-tabs.simplyTab .wrap-tab li a{text-transform:uppercase;color:#E4E4E4;font-weight:400;height:40px;font-size:11px;letter-spacing:1px}
+.cmm-tabs.simplyTab .wrap-tab li a.activeTab{background-color:$(secncolor);color:#fff}
+.posts-title h2 a:before{margin-right:10px}
+.cmm-tabs.simplyTab .wrap-tab{float:right}
+.cmm-tabs.simplyTab .wrap-tab li{padding:0;line-height: 0;margin-left:0}
+.wrap-tab{list-style:none}
 .content-tab{transition:all 0 ease;-webkit-transition:all 0 ease;-moz-transition:all 0 ease;-o-transition:all 0 ease}
+.box.box-author{border-bottom:1px solid $lightcolor}
 
 /* Blog Pager */
 #blog-pager{clear:both;text-align:center;padding:15px 0;background:#fff;color:#4d4d4d}
@@ -884,6 +927,10 @@ h1.post-title{font-size:22px;margin-bottom:10px}
 .pixel-cwrap{text-align:center}
 .temp-cred{float:none;display:block;clear:both;margin:5px 0 0}
 .pixel-credit_copyright{float:none;display:block;font-size:10px;clear:both}
+.cmm-tabs-header h3 h8,.comments .comments-content .datetime{display:none}
+.cmm-tabs-header h3 h9{display:inline-block}
+.cmm-tabs.simplyTab .wrap-tab li a{letter-spacing:0px}
+.cmm-tabs-header .wrap-tab a{padding:0px 7px}
 }
 @media only screen and (max-width: 360px) {
 .title-404{font-size:150px!important}
@@ -896,7 +943,11 @@ h1.post-title{font-size:22px;margin-bottom:10px}
 article{overflow:hidden}
 #blog-pager{padding:0;margin:0}
 .item #blog-pager{margin:0 0 15px}
-.index .resumo span,.archive .resumo span,.blsm-author-box img,.breadcrumbs{display:none}
+.index .resumo span,.archive .resumo span,.blsm-author-box img,.cmm-tabs-header h3,.breadcrumbs{display:none}
+.cmm-tabs-header{overflow:hidden}
+.cmm-tabs.simplyTab .wrap-tab{float:left;width:100%;overflow:hidden;}
+.cmm-tabs-header .wrap-tab li a{letter-spacing:0px;width:100%;box-sizing:border-box;padding:0}
+.cmm-tabs-header .wrap-tab li{float:left;text-align:center;display:inline-block;box-sizing:border-box;width:33.33%}
 .blsm-author-box ul li a{padding:0;background:none}
 .ops-404{font-size:20px!important}
 .title-404{font-size:120px!important}
@@ -1619,7 +1670,7 @@ loadCSS("//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css");
    <div class='comments' id='comments'>
     <a name='comments'/>
     <b:if cond='data:post.allowComments'>
-      <h4><data:post.commentLabelFull/>:</h4>
+      <h4><data:post.commentLabelFull/></h4>
 
       <b:if cond='data:post.commentPagingRequired'>
         <span class='paging-control-container'>
@@ -2473,7 +2524,7 @@ $('.pixel-navigation').after(codei);
        <b:includable id='threaded_comments' var='post'>
   <div class='comments' id='comments'>
     <a name='comments'/>
-    <h4><data:post.commentLabelFull/>:</h4>
+    <h4><data:post.commentLabelFull/></h4>
 
     <div class='comments-content'>
       <b:include cond='data:post.embedCommentForm' data='post' name='threaded_comment_js'/>
@@ -2505,133 +2556,133 @@ $('.pixel-navigation').after(codei);
   </div>
 </b:includable>
      </b:widget>
-     <b:widget id='HTML990' locked='true' title='Comments System' type='HTML' version='1'>
+
+     <b:widget id='HTML990' locked='true' title='Comments system' type='HTML' version='1'>
        <b:widget-settings>
          <b:widget-setting name='content'>[blogger][disqus][facebook]</b:widget-setting>
        </b:widget-settings>
        <b:includable id='main'>
-
-          <b:if cond='data:blog.pageType in {&quot;item&quot;,&quot;static_page&quot;}'>
-
-<div id='pixel-comment-placer'>
-            <b:if cond='data:content == &quot;[blogger]&quot;'>
-              <div class='pixel-tabs'>
-                <div data-tab='blogger'><div class='pixel-blogger-comment'/></div>
-              </div>
-            </b:if>
-            <b:if cond='data:content == &quot;[facebook]&quot;'>
-
-              <div class='pixel-tabs'>
-                <div data-tab='facebook'><div class='facebook-tab'/></div>
-              </div>
-              <script type='text/javascript'>
-              //<![CDATA[
-                $('#comments').remove();
-              //]]>
-              </script>
-            </b:if>
-            <b:if cond='data:content == &quot;[disqus]&quot;'>
-              <div class='pixel-tabs'>
-                <div data-tab='disqus'><div class='disqus-tab'><div id='disqus_thread'/></div></div>
-              </div>
-              <script type='text/javascript'>
-              //<![CDATA[
-                $('#comments').remove();
-              //]]>
-              </script>
-            </b:if>
-            <b:if cond='data:content == &quot;[blogger][facebook]&quot;'>
-              <div class='pixel-tabs'>
-                <div data-tab='blogger'><div class='pixel-blogger-comment'/></div>
-                <div data-tab='facebook'><div class='facebook-tab'/></div>
-              </div>
-            </b:if>
-            <b:if cond='data:content == &quot;[blogger][disqus]&quot;'>
-              <div class='pixel-tabs'>
-                <div data-tab='blogger'><div class='pixel-blogger-comment'/></div>
-                <div data-tab='disqus'><div class='disqus-tab'><div id='disqus_thread'/></div></div>
-              </div>
-            </b:if>
-            <b:if cond='data:content == &quot;[facebook][blogger]&quot;'>
-              <div class='pixel-tabs'>
-                <div data-tab='facebook'><div class='facebook-tab'/></div>
-                <div data-tab='blogger'><div class='pixel-blogger-comment'/></div>
-              </div>
-            </b:if>
-            <b:if cond='data:content == &quot;[facebook][disqus]&quot;'>
-              <div class='pixel-tabs'>
-                <div data-tab='facebook'><div class='facebook-tab'/></div>
-                <div data-tab='disqus'><div class='disqus-tab'><div id='disqus_thread'/></div></div>
-              <script type='text/javascript'>
-              //<![CDATA[
-                $('#comments').remove();
-              //]]>
-              </script>
-              </div>
-            </b:if>
-            <b:if cond='data:content == &quot;[disqus][blogger]&quot;'>
-              <div class='pixel-tabs'>
-                <div data-tab='disqus'><div class='disqus-tab'><div id='disqus_thread'/></div></div>
-                <div data-tab='blogger'><div class='pixel-blogger-comment'/></div>
-              </div>
-            </b:if>
-            <b:if cond='data:content == &quot;[disqus][facebook]&quot;'>
-              <div class='pixel-tabs'>
-                <div data-tab='disqus'><div class='disqus-tab'><div id='disqus_thread'/></div></div>
-                <div data-tab='facebook'><div class='facebook-tab'/></div>
-              </div>
-              <script type='text/javascript'>
-              //<![CDATA[
-                $('#comments').remove();
-              //]]>
-              </script>
-            </b:if>
-            <b:if cond='data:content == &quot;[blogger][facebook][disqus]&quot;'>
-              <div class='pixel-tabs'>
-                <div data-tab='blogger'><div class='pixel-blogger-comment'/></div>
-                <div data-tab='facebook'><div class='facebook-tab'/></div>
-                <div data-tab='disqus'><div class='disqus-tab'><div id='disqus_thread'/></div></div>
-              </div>
-            </b:if>
-            <b:if cond='data:content == &quot;[blogger][disqus][facebook]&quot;'>
-              <div class='pixel-tabs'>
-                <div data-tab='blogger'><div class='pixel-blogger-comment'/></div>
-                <div data-tab='disqus'><div class='disqus-tab'><div id='disqus_thread'/></div></div>
-                <div data-tab='facebook'><div class='facebook-tab'/></div>
-              </div>
-            </b:if>
-            <b:if cond='data:content == &quot;[facebook][blogger][disqus]&quot;'>
-              <div class='pixel-tabs'>
-                <div data-tab='facebook'><div class='facebook-tab'/></div>
-                <div data-tab='blogger'><div class='pixel-blogger-comment'/></div>
-                <div data-tab='disqus'><div class='disqus-tab'><div id='disqus_thread'/></div></div>
-              </div>
-            </b:if>
-            <b:if cond='data:content == &quot;[facebook][disqus][blogger]&quot;'>
-              <div class='pixel-tabs'>
+         <b:if cond='data:blog.pageType == &quot;item&quot;'>
+           <div id='pixel-comment-placer'>
+           <b:if cond='data:content == &quot;[blogger]&quot;'>
+             <div class='cmm-tabs'>
+               <div data-tab='blogger'><div class='blogger-tab'/></div>
+             </div>
+           </b:if>
+           <b:if cond='data:content == &quot;[facebook]&quot;'>
+             <div class='cmm-tabs'>
+               <div data-tab='facebook'><div class='facebook-tab'/></div>
+             </div>
+             <script type='text/javascript'>
+             //<![CDATA[
+               $('#comments').remove();
+             //]]>
+             </script>
+           </b:if>
+           <b:if cond='data:content == &quot;[disqus]&quot;'>
+             <div class='cmm-tabs'>
+               <div data-tab='disqus'><div class='disqus-tab'><div id='disqus_thread'/></div></div>
+             </div>
+             <script type='text/javascript'>
+             //<![CDATA[
+               $('#comments').remove();
+             //]]>
+             </script>
+           </b:if>
+           <b:if cond='data:content == &quot;[blogger][facebook]&quot;'>
+               <div class='cmm-tabs'>
+                 <div data-tab='blogger'><div class='blogger-tab'/></div>
+                 <div data-tab='facebook'><div class='facebook-tab'/></div>
+               </div>
+           </b:if>
+           <b:if cond='data:content == &quot;[blogger][disqus]&quot;'>
+               <div class='cmm-tabs'>
+                 <div data-tab='blogger'><div class='blogger-tab'/></div>
+                 <div data-tab='disqus'><div class='disqus-tab'><div id='disqus_thread'/></div></div>
+               </div>
+           </b:if>
+           <b:if cond='data:content == &quot;[facebook][blogger]&quot;'>
+               <div class='cmm-tabs'>
+                 <div data-tab='facebook'><div class='facebook-tab'/></div>
+                 <div data-tab='blogger'><div class='blogger-tab'/></div>
+               </div>
+           </b:if>
+           <b:if cond='data:content == &quot;[facebook][disqus]&quot;'>
+               <div class='cmm-tabs'>
+                 <div data-tab='facebook'><div class='facebook-tab'/></div>
+                 <div data-tab='disqus'><div class='disqus-tab'><div id='disqus_thread'/></div></div>
+               <script type='text/javascript'>
+               //<![CDATA[
+                 $('#comments').remove();
+               //]]>
+               </script>
+               </div>
+           </b:if>
+           <b:if cond='data:content == &quot;[disqus][blogger]&quot;'>
+               <div class='cmm-tabs'>
+                 <div data-tab='disqus'><div class='disqus-tab'><div id='disqus_thread'/></div></div>
+                 <div data-tab='blogger'><div class='blogger-tab'/></div>
+               </div>
+           </b:if>
+           <b:if cond='data:content == &quot;[disqus][facebook]&quot;'>
+               <div class='cmm-tabs'>
+                 <div data-tab='disqus'><div class='disqus-tab'><div id='disqus_thread'/></div></div>
+                 <div data-tab='facebook'><div class='facebook-tab'/></div>
+               </div>
+               <script type='text/javascript'>
+               //<![CDATA[
+                 $('#comments').remove();
+               //]]>
+               </script>
+           </b:if>
+           <b:if cond='data:content == &quot;[blogger][disqus][facebook]&quot;'>
+             <div class='cmm-tabs'>
+               <div data-tab='blogger'><div class='blogger-tab'/></div>
+               <div data-tab='disqus'><div class='disqus-tab'><div id='disqus_thread'/></div></div>
+               <div data-tab='facebook'><div class='facebook-tab'/></div>
+             </div>
+           </b:if>
+           <b:if cond='data:content == &quot;[blogger][facebook][disqus]&quot;'>
+              <div class='cmm-tabs'>
+                <div data-tab='blogger'><div class='blogger-tab'/></div>
                 <div data-tab='facebook'><div class='facebook-tab'/></div>
                 <div data-tab='disqus'><div class='disqus-tab'><div id='disqus_thread'/></div></div>
-                <div data-tab='blogger'><div class='pixel-blogger-comment'/></div>
               </div>
-            </b:if>
-            <b:if cond='data:content == &quot;[disqus][blogger][facebook]&quot;'>
-              <div class='pixel-tabs'>
+           </b:if>
+           <b:if cond='data:content == &quot;[facebook][blogger][disqus]&quot;'>
+              <div class='cmm-tabs'>
+                <div data-tab='facebook'><div class='facebook-tab'/></div>
+                <div data-tab='blogger'><div class='blogger-tab'/></div>
                 <div data-tab='disqus'><div class='disqus-tab'><div id='disqus_thread'/></div></div>
-                <div data-tab='blogger'><div class='pixel-blogger-comment'/></div>
+              </div>
+          </b:if>
+          <b:if cond='data:content == &quot;[facebook][disqus][blogger]&quot;'>
+              <div class='cmm-tabs'>
+                <div data-tab='facebook'><div class='facebook-tab'/></div>
+                <div data-tab='disqus'><div class='disqus-tab'><div id='disqus_thread'/></div></div>
+                <div data-tab='blogger'><div class='blogger-tab'/></div>
+              </div>
+          </b:if>
+          <b:if cond='data:content == &quot;[disqus][blogger][facebook]&quot;'>
+              <div class='cmm-tabs'>
+                <div data-tab='disqus'><div class='disqus-tab'><div id='disqus_thread'/></div></div>
+                <div data-tab='blogger'><div class='blogger-tab'/></div>
                 <div data-tab='facebook'><div class='facebook-tab'/></div>
               </div>
-            </b:if>
-            <b:if cond='data:content == &quot;[disqus][facebook][blogger]&quot;'>
-              <div class='pixel-tabs'>
+          </b:if>
+          <b:if cond='data:content == &quot;[disqus][facebook][blogger]&quot;'>
+              <div class='cmm-tabs'>
                 <div data-tab='disqus'><div class='disqus-tab'><div id='disqus_thread'/></div></div>
                 <div data-tab='facebook'><div class='facebook-tab'/></div>
-                <div data-tab='blogger'><div class='pixel-blogger-comment'/></div>
+                <div data-tab='blogger'><div class='blogger-tab'/></div>
               </div>
-            </b:if>
-            <div id='fb-root'/><script>(function(d, s, id){var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s); js.id = id;js.src = &quot;//connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v2.0&quot;;fjs.parentNode.insertBefore(js, fjs);}(document, &#39;script&#39;, &#39;facebook-jssdk&#39;));</script>&lt;script&gt;$(&quot;.facebook-tab&quot;).append(&quot;&lt;div class=&#39;fb-comments&#39; data-href=&#39;<data:blog.canonicalUrl/>&#39; data-width=&#39;100%&#39; data-numposts=&#39;5&#39; data-colorscheme=&#39;light&#39;&gt;&lt;/div&gt;&quot;);&lt;/script&gt;
-         </div>  </b:if>
-        </b:includable>
+           </b:if>
+           <div id='fb-root'/><script>(function(d, s, id){var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s); js.id = id;js.src = &quot;//connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v2.0&quot;;fjs.parentNode.insertBefore(js, fjs);}(document, &#39;script&#39;, &#39;facebook-jssdk&#39;));</script>&lt;script&gt;$(&quot;.facebook-tab&quot;).append(&quot;&lt;div class=&#39;fb-comments&#39; data-href=&#39;<data:blog.canonicalUrl/>&#39; data-width=&#39;100%&#39; data-numposts=&#39;5&#39; data-colorscheme=&#39;light&#39;&gt;&lt;/div&gt;&quot;);&lt;/script&gt;
+         </div>
+         </b:if>
+       </b:includable>
      </b:widget>
+
      <b:widget id='HTML989' locked='true' title='Disqus Shortname' type='HTML' version='1'>
        <b:widget-settings>
          <b:widget-setting name='content'>theme-daddy</b:widget-setting>
@@ -3258,14 +3309,14 @@ window.selectnav=function(){"use strict";var e=function(e,t){function c(e){var t
 (function($,window,undefined){$.fn.tabslet=function(options){var defaults={mouseevent:"click",attribute:"href",animation:false,autorotate:false,pauseonhover:true,delay:2000,active:1,controls:{prev:".prev",next:".next"}};var options=$.extend(defaults,options);return this.each(function(){var $this=$(this);options.mouseevent=$this.data("mouseevent")||options.mouseevent;options.attribute=$this.data("attribute")||options.attribute;options.animation=$this.data("animation")||options.animation;options.autorotate=$this.data("autorotate")||options.autorotate;options.pauseonhover=$this.data("pauseonhover")||options.pauseonhover;options.delay=$this.data("delay")||options.delay;options.active=$this.data("active")||options.active;$this.find("> div").hide();$this.find("> div").eq(options.active-1).show();$this.find("> ul li").eq(options.active-1).addClass("active");var fn=eval(function(){$(this).trigger("_before");$this.find("> ul li").removeClass("active");$(this).addClass("active");$this.find("> div").hide();var currentTab=$(this).find("a").attr(options.attribute);if(options.animation){$this.find(currentTab).animate({opacity:"show"},"slow",function(){$(this).trigger("_after")})}else{$this.find(currentTab).show();$(this).trigger("_after")}return false});var init=eval("$this.find('> ul li')."+options.mouseevent+"(fn)");init;var elements=$this.find("> ul li"),i=options.active-1;function forward(){i=++i%elements.length;options.mouseevent=="hover"?elements.eq(i).trigger("mouseover"):elements.eq(i).click();var t=setTimeout(forward,options.delay);$this.mouseover(function(){if(options.pauseonhover){clearTimeout(t)}})}if(options.autorotate){setTimeout(forward,0);if(options.pauseonhover){$this.on("mouseleave",function(){setTimeout(forward,1000)})}}function move(direction){if(direction=="forward"){i=++i%elements.length}if(direction=="backward"){i=--i%elements.length}elements.eq(i).click()}$this.find(options.controls.next).click(function(){move("forward")});$this.find(options.controls.prev).click(function(){move("backward")});$this.on("destroy",function(){$(this).removeData()})})};$(document).ready(function(){$('[data-toggle="tabslet"]').tabslet()})})(jQuery);
 
 // Simple Tab JQuery Plugin by Taufik Nurrohman - https://plus.google.com/108949996304093815163/about
-(function(a){a.fn.simplyTab=function(b){b=jQuery.extend({active:1,fx:null,showSpeed:400,hideSpeed:400,showEasing:null,hideEasing:null,show:function(){},hide:function(){},change:function(){}},b);return this.each(function(){var e=a(this),c=e.children("[data-tab]"),d=b.active-1;e.addClass("simplyTab").prepend('<ul class="pixel-tab-wrapper"></ul>');c.addClass("content-tab").each(function(){a(this).hide();e.find(".pixel-tab-wrapper").append('<li><a href="#">'+a(this).data("tab")+"</a></li>")}).eq(d).show();e.find(".pixel-tab-wrapper a").on("click",function(){var f=a(this).parent().index();a(this).closest(".pixel-tab-wrapper").find(".activeTab").removeClass("activeTab");a(this).addClass("activeTab");if(b.fx=="slide"){if(c.eq(f).is(":hidden")){c.slideUp(b.hideSpeed,b.hideEasing,function(){b.hide.call(e)}).eq(f).slideDown(b.showSpeed,b.showEasing,function(){b.show.call(e)})}}else{if(b.fx=="fade"){if(c.eq(f).is(":hidden")){c.hide().eq(f).fadeIn(b.showSpeed,b.showEasing,function(){b.show.call(e)})}}else{if(b.fx=="fancyslide"){if(c.eq(f).is(":hidden")){c.slideUp(b.hideSpeed,b.hideEasing,function(){b.hide.call(e)}).eq(f).delay(b.hideSpeed).slideDown(b.showSpeed,b.showEasing,function(){b.show.call(e)})}}else{if(c.eq(f).is(":hidden")){c.hide().eq(f).show()}}}}b.change.call(e);return false}).eq(d).addClass("activeTab")})}})(jQuery);
+(function(a){a.fn.simplyTab=function(b){b=jQuery.extend({active:1,fx:null,showSpeed:400,hideSpeed:400,showEasing:null,hideEasing:null,show:function(){},hide:function(){},change:function(){}},b);return this.each(function(){var e=a(this),c=e.children("[data-tab]"),d=b.active-1;e.addClass("simplyTab").prepend('<ul class="wrap-tab"></ul>');c.addClass("content-tab").each(function(){a(this).hide();e.find(".wrap-tab").append('<li><a href="#">'+a(this).data("tab")+"</a></li>")}).eq(d).show();e.find(".wrap-tab a").on("click",function(){var f=a(this).parent().index();a(this).closest(".wrap-tab").find(".activeTab").removeClass("activeTab");a(this).addClass("activeTab");if(b.fx=="slide"){if(c.eq(f).is(":hidden")){c.slideUp(b.hideSpeed,b.hideEasing,function(){b.hide.call(e)}).eq(f).slideDown(b.showSpeed,b.showEasing,function(){b.show.call(e)})}}else{if(b.fx=="fade"){if(c.eq(f).is(":hidden")){c.hide().eq(f).fadeIn(b.showSpeed,b.showEasing,function(){b.show.call(e)})}}else{if(b.fx=="fancyslide"){if(c.eq(f).is(":hidden")){c.slideUp(b.hideSpeed,b.hideEasing,function(){b.hide.call(e)}).eq(f).delay(b.hideSpeed).slideDown(b.showSpeed,b.showEasing,function(){b.show.call(e)})}}else{if(c.eq(f).is(":hidden")){c.hide().eq(f).show()}}}}b.change.call(e);return false}).eq(d).addClass("activeTab")})}})(jQuery);
 
 // jquery replacetext plugin https://github.com/cowboy/jquery-replacetext
 (function(e){e.fn.replaceText=function(t,n,r){return this.each(function(){var i=this.firstChild,s,o,u=[];if(i){do{if(i.nodeType===3){s=i.nodeValue;o=s.replace(t,n);if(o!==s){if(!r&&/</.test(o)){e(i).before(o);u.push(i)}else{i.nodeValue=o}}}}while(i=i.nextSibling)}u.length&&e(u).remove()})}})(jQuery);
 
 
 //main
-$(document).ready(function(e){var t=-1,a="",i="";e("#pixel-menu").find("ul").find("li").each(function(){for(var l=e(this).text(),s=e(this).find("a").attr("href"),n=0,r=0;r<l.length&&-1!=(n=l.indexOf("_",n));r++)n++;if(level=r,level>t&&(a+="<ul>",i+="<ul>"),level<t){offset=t-level;for(r=0;r<offset;r++)a+="</ul></li>",i+="</ul></li>"}l=l.replace(/_/gi,""),a+="<li><a href='"+s+"'>"+l+"</a>",i+="<li><a href='"+s+"'>";for(r=0;r<level;r++)i+="";i+=l+"</a>",t=level});for(var l=0;t>=l;l++)a+="</ul>",i+="</ul>",0!=l&&(a+="</li>",i+="</li>");e("#pixel-menu .LinkList").html(i),e("#pixel-menu > .LinkList > ul").attr("id","pixel_menu"),e("#pixel_menu a").map(function(){var t=e(this).attr("href");-1!=(t=t.toLowerCase()).indexOf("[mega menu]")&&(e(this).addClass("mega-link"),e(this).attr("href","http://pixel-blossom.blogspot.com/search/label/"+e(this).text()+"?&max-results="+perPage))}),selectnav("pixel_menu"),e("#pixel-menu ul > li > ul").parent("li").addClass("hasSubmenu"),e("#pixel-menu .widget").attr("style","display:block!important;"),e("#pixel_menu a.mega-link").map(function(){var t=e(this),a=t.attr("href");if(a=a.toLowerCase(),t.hasClass("mega-link")){var i=t.text();e.ajax({url:"/feeds/posts/default/-/"+i+"?alt=json-in-script&max-results=4",type:"get",dataType:"jsonp",success:function(a){t.closest("li").addClass("isMega hasSubmenu");for(f=0;f<a.feed.link.length;f++){var l=a.feed.link[f],s=l.rel,n=l.type;if("alternate"==s&&"text/html"==n){var r=l.href+"?&max-results="+perPage;t.attr("href",r)}}var d=a.feed.openSearch$totalResults.$t,p=a.feed.openSearch$startIndex.$t,c=a.feed.openSearch$itemsPerPage.$t;if(d>4);else;var o=Math.ceil(d/c);if(a.feed.entry){var m="<ul";m=m+' data-itemnums="'+c+'" data-label="'+i+'" data-start="'+p+'" data-stages="'+o+'" data-cstage="1" data-tpst="'+d+'"',m+='><div class="mega-nav"><a class="mega-prev disable" href="javascript:;"><i class="ion-android-arrow-back"></i></a><a class="mega-next" href="javascript:;"><i class="ion-android-arrow-forward"></i></a></div><div class="pixel-mega-loading" style="display:none">\t<div class="pixel-loading-inner">  <div class="pixel-thecube">\t<div class="pixel-cube pixel-c1"></div>\t<div class="pixel-cube pixel-c2"></div>\t<div class="pixel-cube pixel-c4"></div>\t<div class="pixel-cube pixel-c3"></div>\t\t</div></div>  </div><div class="mega-inner row">';for(var f=0;f<a.feed.entry.length;f++){var u=a.feed.entry[f];if(u.media$thumbnail)-1!==(g=u.media$thumbnail.url).indexOf("/s72-c")&&(g=g.replace("/s72-c","/s1600")),-1!==g.indexOf("img.youtube.com")&&(g=g.replace("/default.jpg","/maxresdefault.jpg"));else var g="https://4.bp.blogspot.com/-wPwjv7-YYGY/Wc98wlDT8qI/AAAAAAAAAEE/mH8YkPl8qJAH9FMuFKcShQvXXYMmVyrIgCLcBGAs/s1600/notfound.png";for(var h=u.title.$t,x=0;x<u.link.length;x++)if("alternate"==u.link[x].rel)var v=u.link[x].href;m=m+'<div class="pixel-mega-item col-sm-3"><div class="pixel-m-thumb" style="background:url(\''+g+'\')"><a class="linkcover" href="'+v+'"></a></div><div class="pixel-text"><a href="'+v+'">'+h+"</a></div></div>"}m+="</div></ul>",t.after(function(){e(this).after(m);var t=e(this).closest(".isMega");t.find(".mega-prev").click(function(){var t=e(this).closest("ul");t.find(".pixel-mega-loading").fadeIn(0);var a=t.attr("data-label"),i=Number(t.attr("data-start")),l=Number(t.attr("data-cstage")),s=(Number(t.attr("data-stages")),Number(t.attr("data-itemnums")));if(i-=s,l-1<=1?e(this).addClass("disable"):e(this).removeClass("disable"),t.find(".mega-next").removeClass("disable"),l>1){var n="",r="/feeds/posts/default/-/"+a+"?alt=json-in-script&start-index="+i+"&max-results="+s;e.ajax({url:r,type:"get",dataType:"jsonp",success:function(e){if(t.attr("data-start",i),t.attr("data-cstage",l-1),e.feed.entry){for(var a=0;a<e.feed.entry.length;a++){var s=e.feed.entry[a];if(s.media$thumbnail)-1!==(r=s.media$thumbnail.url).indexOf("/s72-c")&&(r=r.replace("/s72-c","/s1600")),-1!==r.indexOf("img.youtube.com")&&(r=r.replace("/default.jpg","/maxresdefault.jpg"));else var r="https://4.bp.blogspot.com/-wPwjv7-YYGY/Wc98wlDT8qI/AAAAAAAAAEE/mH8YkPl8qJAH9FMuFKcShQvXXYMmVyrIgCLcBGAs/s1600/notfound.png";for(var d=s.title.$t,p=0;p<s.link.length;p++)if("alternate"==s.link[p].rel)var c=s.link[p].href;n=n+'<div class="pixel-mega-item col-sm-3"><div class="pixel-m-thumb" style="background:url(\''+r+'\')"><a class="linkcover" href="'+c+'"></a></div><div class="pixel-text"><a href="'+c+'">'+d+"</a></div></div>"}t.find(".mega-inner").html(n),setTimeout(function(){t.find(".pixel-mega-loading").fadeOut()},1e3)}},error:function(e){setTimeout(function(){t.find(".pixel-mega-loading").fadeOut()},1e3)}})}}),t.find(".mega-next").click(function(){var t=e(this).closest("ul");t.find(".pixel-mega-loading").fadeIn(0);var a=t.attr("data-label"),i=Number(t.attr("data-start")),l=Number(t.attr("data-cstage")),s=Number(t.attr("data-stages")),n=Number(t.attr("data-itemnums"));if(i+=n,l+1==s?e(this).addClass("disable"):e(this).removeClass("disable"),l>=1?t.find(".mega-prev").removeClass("disable"):t.find(".mega-prev").addClass("disable"),s>l){var r="",d="/feeds/posts/default/-/"+a+"?alt=json-in-script&start-index="+i+"&max-results="+n;e.ajax({url:d,type:"get",dataType:"jsonp",success:function(e){if(t.attr("data-start",i),t.attr("data-cstage",l+1),e.feed.entry){for(var a=0;a<e.feed.entry.length;a++){var s=e.feed.entry[a];if(s.media$thumbnail)-1!==(n=s.media$thumbnail.url).indexOf("/s72-c")&&(n=n.replace("/s72-c","/s1600")),-1!==n.indexOf("img.youtube.com")&&(n=n.replace("/default.jpg","/maxresdefault.jpg"));else var n="https://4.bp.blogspot.com/-wPwjv7-YYGY/Wc98wlDT8qI/AAAAAAAAAEE/mH8YkPl8qJAH9FMuFKcShQvXXYMmVyrIgCLcBGAs/s1600/notfound.png";for(var d=s.title.$t,p=0;p<s.link.length;p++)if("alternate"==s.link[p].rel)var c=s.link[p].href;r=r+'<div class="pixel-mega-item col-sm-3"><div class="pixel-m-thumb" style="background:url(\''+n+'\')"><a class="linkcover" href="'+c+'"></a></div><div class="pixel-text"><a href="'+c+'">'+d+"</a></div></div>"}t.find(".mega-inner").html(r),setTimeout(function(){t.find(".pixel-mega-loading").fadeOut()},1e3)}},error:function(e){setTimeout(function(){t.find(".pixel-mega-loading").fadeOut()},1e3)}})}})})}},error:function(e){}})}}),e(".FeaturedPost .post-summary").map(function(){if(e(this).find(".image")){var t=e(this).find(".image").attr("src");e(this).attr("style","background-image:url("+t+");")}e(this).append("<div class='overlay'></div>")})}),$(document).ready(function(){selectnav("nav")}),$(document).ready(function(){var e=$("#pixel-sidebar-tabs #tabside1 .widget h2").text();$(".pixel-sidebar-tab .item-1 a").text(e);var t=$("#pixel-sidebar-tabs #tabside2 .widget h2").text();$(".pixel-sidebar-tab .item-2 a").text(t);var a=$("#pixel-sidebar-tabs #tabside3 .widget h2").text();$(".pixel-sidebar-tab .item-3 a").text(a),$("#tabside1 .widget h2,#tabside2 .widget h2,#tabside3 .widget h2,#tabside1 .widget-title,#tabside2 .widget-title,#tabside3 .widget-title").remove(),$(this).find(".pixel-sidebar-tab li").addClass("pixel-hide"),$(".pixel-sidebar-tabs").tabslet({mouseevent:"click",attribute:"href",animation:!0}),0===$(".pixel-sidebar-tabs .widget").length&&$(".pixel-sidebar-tabs").remove()}),$(document).ready(function(){cmtal?($(".pixel-tabs").simplyTab({active:1,fx:"fade",showSpeed:400,hideSpeed:400}),$(".pixel-blogger-comment").append($("#comments")),$(".pixel-tabs.simplyTab .pixel-tab-wrapper").wrap("<div class='pixel-tabs-header'/>")):$("#pixel-comment-placer").remove()}),$(".post-home-image .post-thumb a").attr("style",function(e,t){return t.match("hqdefault.jpg")?t.replace("/hqdefault.jpg","/mqdefault.jpg"):t.match("default.jpg")?t.replace("/default.jpg","/mqdefault.jpg"):t.match("s72-c")?t.replace("/s72-c","/s1600"):t.match("w72-h72-p-nu")?t.replace("/w72-h72-p-nu","/s1600"):t.replace("https://4.bp.blogspot.com/-wPwjv7-YYGY/Wc98wlDT8qI/AAAAAAAAAEE/mH8YkPl8qJAH9FMuFKcShQvXXYMmVyrIgCLcBGAs/s1600/notfound.png","https://4.bp.blogspot.com/-wPwjv7-YYGY/Wc98wlDT8qI/AAAAAAAAAEE/mH8YkPl8qJAH9FMuFKcShQvXXYMmVyrIgCLcBGAs/s1600/notfound.png")}),$(".PopularPosts ul li img").attr("src",function(e,t){return t.match("hqdefault.jpg")?t.replace("/hqdefault.jpg","/mqdefault.jpg"):t.match("default.jpg")?t.replace("/default.jpg","/mqdefault.jpg"):t.match("s72-c")?t.replace("/s72-c","/s1600"):t.match("w72-h72-p-nu")?t.replace("/w72-h72-p-nu","/s1600"):t.replace("https://4.bp.blogspot.com/-wPwjv7-YYGY/Wc98wlDT8qI/AAAAAAAAAEE/mH8YkPl8qJAH9FMuFKcShQvXXYMmVyrIgCLcBGAs/s1600/notfound.png","https://4.bp.blogspot.com/-wPwjv7-YYGY/Wc98wlDT8qI/AAAAAAAAAEE/mH8YkPl8qJAH9FMuFKcShQvXXYMmVyrIgCLcBGAs/s1600/notfound.pngg")}),$(document).ready(function(){$('span[name="author-social"]').before($(".post-author-social .widget-content").html()),$(".post-author-social .widget-content").html(""),$('span[name="author-post"]').before($(".post-author-widget .widget-content").html()),$(".post-author-widget .widget-content").html(""),$('a[name="ad-post-top"]').before($("#pixel-advert-2 .widget-content").html()),$("#pixel-advert-2 .widget-content").html(""),$('a[name="ad-post-bottom"]').before($("#pixel-advert-3 .widget-content").html()),$("#pixel-advert-3 .widget-content").html("")}),$(".pixel_featured_widget .HTML .widget-content").map(function(){var e=$(this).find("span").attr("data-label"),t=($(this).find("span").attr("data-no"),$(this).prev("h2").text(),$(this).parent().attr("id"));$(this).find("span").attr("data-type").match("pixelfeatured")&&$.ajax({url:"/feeds/posts/default/-/"+e+"?alt=json-in-script&max-results=3",type:"get",dataType:"jsonp",success:function(a){var i="",l='<div class="pixel-featured">';if(a.feed.entry)for(var s=0;s<a.feed.entry.length;s++){for(var n=0;n<a.feed.entry[s].link.length;n++)if("alternate"==a.feed.entry[s].link[n].rel){i=a.feed.entry[s].link[n].href;break}if("content"in a.feed.entry[s])r=a.feed.entry[s].content.$t;else if("summary"in b_rc)r=a.feed.entry[s].summary.$t;else var r="";var d=/<\S[^>]*>/g;(r=r.replace(d,"")).length>120&&(r=r.substring(0,100)+"...");var p=a.feed.entry[s].title.$t,c=a.feed.entry[s].category[0].term,o=a.feed.entry[s].author[0].name.$t,m=a.feed.entry[s].published.$t,f=m.substring(0,4),u=m.substring(5,7),g=m.substring(8,10),h=month_format[parseInt(u,10)]+" "+g+", "+f,x=a.feed.entry[s].content.$t,v=$("<div>").html(x);if(x.indexOf("//www.youtube.com/embed/")>-1)b=a.feed.entry[s].media$thumbnail.url;else if(x.indexOf("<img")>-1)b=v.find("img:first").attr("src");else var b=no_image;l+=0==s?'<div class="pixel-hero"><div class="pixel-featured-image"><div class="pixelfeatured-thumb"><a class="blsm-img" href="'+i+'" style="background:url('+b+') no-repeat center center;background-size: cover"><span class="pixel-trap"/></a></div><div class="pixel-hero-content"><div class="pixel-label"><a class="icon '+c+'" href="/search/label/'+c+'">'+c+'</a></div><h3 class="pixelfeatured-title"><a href="'+i+'">'+p+'</a></h3><span class="pixel-author">'+o+'</span><span class="pixel-time">'+h+"</span></div></div></div>":'<div class="pixel-secondary"><div class="pixelfeatured-thumb"><a class="pixel-thumb" href="'+i+'" style="background:url('+b+') no-repeat center center;background-size: cover"><span class="pixel-trap"/></a></div><div class="pixel-content"><div class="pixel-label"><a class="icon '+c+'" href="/search/label/'+c+'">'+c+'</a></div><h3 class="pixelfeatured-title"><a href="'+i+'">'+p+'</a></h3><span class="pixel-author">'+o+'</span><span class="pixel-time">'+h+'</span></div><div class="clear"/></div>'}else l=l+'<style>.pixel-empty-panel img{max-width: 600px; width:100%}.pixel-empty-panel{text-align: center;}.pixel-empty-text h3{font-weight: 600;font-size:18px;line-height: 24px;margin-bottom:50px;}</style><div class="pixel-empty-panel"><div class="pixel-empty-thumb"><img src="https://1.bp.blogspot.com/-FCuCIgXt2v8/WdDfhsYYoZI/AAAAAAAAAhk/X-ke9mcD1KsrOnsxV2z15nup1TkXkw36wCLcBGAs/s1600/trpgrid.png"></div><div class="pixel-empty-text"><h3>No posts found for label : "'+e+'". <br/> <span class="pixel-small">You can disable this widget by removing all the widget content from layout tab.</span></h3></div></div>';l+="</div>",$(".pixel_featured_widget .HTML .widget-content").each(function(){$(this).parent().attr("id")==t&&($(this).html(l),$(this).parent().addClass("pixelfeatured"),$(this).parent().addClass("pixl"),$(".pixel_featured_widget").addClass("pixel-implied").removeClass("pixel-initiate"),$(this).find(".pixel-thumb,.blsm-img").each(function(){$(this).attr("style",function(e,t){return t.replace("/default.jpg","/mqdefault.jpg")}).attr("style",function(e,t){return t.replace("s72-c","s1600")})}))})}})}),$(".pixel-widetize .HTML .widget-content span.pixel-cmnt").each(function(){var e=$(this).attr("data-no");$.ajax({url:"/feeds/comments/default?alt=json-in-script&max-results="+e,type:"get",dataType:"jsonp",success:function(t){var a="",i='<div class="pixel-comments">';if(t.feed.entry)for(var l=0;l<t.feed.entry.length&&l!=t.feed.entry.length;l++){for(var s=0;s<t.feed.entry[l].link.length;s++)if("alternate"==t.feed.entry[l].link[s].rel){a=t.feed.entry[l].link[s].href;break}if("content"in t.feed.entry[l])n=t.feed.entry[l].content.$t;else if("summary"in b_rc)n=t.feed.entry[l].summary.$t;else var n="";var r=/<\S[^>]*>/g;(n=n.replace(r,"")).length>70&&(n=n.substring(0,50)+"...");var d=t.feed.entry[l].author[0].name.$t,p=t.feed.entry[l].author[0].gd$image.src;if(p.match("http://img1.blogblog.com/img/blank.gif"))c="http://img1.blogblog.com/img/anon36.png";else if(p.match("http://img2.blogblog.com/img/b16-rounded.gif"))c="http://img1.blogblog.com/img/anon36.png";else var c=p;i+='<div class="pixel-comment"><div class="pixel-comment-profile"><img class="pixel-comment-thumb" src="'+c+'"/></div><a href="'+a+'">'+d+'</a><span>"'+n+'"</span></div>'}else i+='<style>.pixel-empty-panel img{max-width: 600px; width:100%}.pixel-empty-panel{text-align: center;}.pixel-empty-text h3{font-weight: 600;font-size:18px;line-height: 24px;margin-bottom:50px;}.bgr{background: rgb(236,239,241);}.bgr{box-sizing: border-box;padding:5px 10px;}</style><div class="pixel-empty-panel bgr"><div class="pixel-empty-thumb"><img src="https://4.bp.blogspot.com/-wPwjv7-YYGY/Wc98wlDT8qI/AAAAAAAAAEE/mH8YkPl8qJAH9FMuFKcShQvXXYMmVyrIgCLcBGAs/s1600/notfound.png"></div><div class="pixel-empty-text"><h3>No comments! <br/></h3></div></div>';i+='</div><div class="clear"/>',$(".pixel-widetize .HTML .widget-content span.pixel-cmnt").each(function(){$(this).attr("data-no")==e&&$(this).parent().html(i)})}})}),$(".pixel-widetize .HTML .widget-content span.pixel-recent").each(function(){var e=$(this).attr("data-no");$.ajax({url:"/feeds/posts/default?alt=json-in-script&max-results="+e,type:"get",dataType:"jsonp",success:function(t){var a="",i='<div class="pixel-recent">';if(t.feed.entry)for(var l=0;l<t.feed.entry.length;l++){for(var s=0;s<t.feed.entry[l].link.length;s++)if("alternate"==t.feed.entry[l].link[s].rel){a=t.feed.entry[l].link[s].href;break}var n=t.feed.entry[l].title.$t,r=(t.feed.entry[l].category[0].term,t.feed.entry[l].author[0].name.$t),j=t.feed.entry[l].category[0].term,d=t.feed.entry[l].published.$t,p=d.substring(0,4),c=d.substring(5,7),o=d.substring(8,10),m=month_format[parseInt(c,10)]+" "+o+", "+p,f=t.feed.entry[l].content.$t,u=$("<div>").html(f);if(f.indexOf("//www.youtube.com/embed/")>-1)g=t.feed.entry[l].media$thumbnail.url.replace("/default.jpg","/mqdefault.jpg");else if(f.indexOf("<img")>-1)g=u.find("img:first").attr("src").replace("s72-c","s1600");else var g=no_image;i+='<div class="pixel-recent-item"><a class="pixel-recent-thumb" href="'+a+'" style="background:url('+g+') no-repeat center center;background-size: cover"><span class="pixel-trap"/></a><div class="pixel-recent-content"><div class="pixel-label"><a class="icon ' + j + '" href="/search/label/' + j + '">' + j + '</a></div><h3 class="pixel-recent-title"><a href="'+a+'">'+n+'</a></h3><span class="pixel-author">'+r+'</span><span class="pixel-time">'+m+"</span></div></div>"}else i+='<style>.pixel-empty-panel img{max-width: 600px; width:100%}.pixel-empty-panel{text-align: center;}.pixel-empty-text h3{font-weight: 600;font-size:18px;line-height: 24px;margin-bottom:50px;}.bgr{background: rgb(236,239,241);}.bgr{box-sizing: border-box;padding:5px 10px;}</style><div class="pixel-empty-panel bgr"><div class="pixel-empty-thumb"><img src="https://4.bp.blogspot.com/-wPwjv7-YYGY/Wc98wlDT8qI/AAAAAAAAAEE/mH8YkPl8qJAH9FMuFKcShQvXXYMmVyrIgCLcBGAs/s1600/notfound.png"></div><div class="pixel-empty-text"><h3>No Posts found! <br/></h3></div></div>';i+="</div>",$(".pixel-widetize .HTML .widget-content span.pixel-recent").each(function(){$(this).attr("data-no")==e&&$(this).parent().html(i)})}})}),$(".pixel-widetize .HTML .widget-content span.pixel-tagswid").each(function(){var e=$(this).attr("data-label"),t=$(this).attr("data-no");$.ajax({url:"/feeds/posts/default/-/"+e+"?alt=json-in-script&max-results="+t,type:"get",dataType:"jsonp",success:function(t){var a="",i='<div class="pixel-recent">';if(t.feed.entry)for(var l=0;l<t.feed.entry.length;l++){for(var s=0;s<t.feed.entry[l].link.length;s++)if("alternate"==t.feed.entry[l].link[s].rel){a=t.feed.entry[l].link[s].href;break}var n=t.feed.entry[l].title.$t,r=(t.feed.entry[l].category[0].term,t.feed.entry[l].author[0].name.$t),j=t.feed.entry[l].category[0].term,d=t.feed.entry[l].published.$t,p=d.substring(0,4),c=d.substring(5,7),o=d.substring(8,10),m=month_format[parseInt(c,10)]+" "+o+", "+p,f=t.feed.entry[l].content.$t,u=$("<div>").html(f);if(f.indexOf("//www.youtube.com/embed/")>-1)g=t.feed.entry[l].media$thumbnail.url.replace("/default.jpg","/mqdefault.jpg");else if(f.indexOf("<img")>-1)g=u.find("img:first").attr("src").replace("s72-c","s1600");else var g=no_image;i+='<div class="pixel-recent-item"><a class="pixel-recent-thumb" href="'+a+'" style="background:url('+g+') no-repeat center center;background-size: cover"><span class="pixel-trap"/></a><div class="pixel-recent-content"><div class="pixel-label"><a class="icon ' + j + '" href="/search/label/' + j + '">' + j + '</a></div><h3 class="pixel-recent-title"><a href="'+a+'">'+n+'</a></h3><span class="pixel-author">'+r+'</span><span class="pixel-time">'+m+"</span></div></div>"}else i+='<style>.pixel-empty-panel img{max-width: 600px; width:100%}.pixel-empty-panel{text-align: center;}.pixel-empty-text h3{font-weight: 600;font-size:18px;line-height: 24px;margin-bottom:50px;}.bgr{background: rgb(236,239,241);}.bgr{box-sizing: border-box;padding:5px 10px;}</style><div class="pixel-empty-panel bgr"><div class="pixel-empty-thumb"><img src="https://4.bp.blogspot.com/-wPwjv7-YYGY/Wc98wlDT8qI/AAAAAAAAAEE/mH8YkPl8qJAH9FMuFKcShQvXXYMmVyrIgCLcBGAs/s1600/notfound.png"></div><div class="pixel-empty-text"><h3>No Posts found! <br/></h3></div></div>';i+="</div>",$(".pixel-widetize .HTML .widget-content span.pixel-tagswid").each(function(){$(this).attr("data-label")==e&&$(this).parent().html(i)})}})}),$(document).ready(function(){$('span[name="author-social"]').before($(".post-author-social .widget-content").html()),$(".post-author-social .widget-content").html(""),$('span[name="author-post"]').before($(".post-author-widget .widget-content").html()),$(".post-author-widget .widget-content").html("")}),$(".blsm-comment").click(function(){$("html, body").animate({scrollTop:$("#pixel-comment-placer").offset().top},1e3)});
+$(document).ready(function(e){var t=-1,a="",i="";e("#pixel-menu").find("ul").find("li").each(function(){for(var l=e(this).text(),s=e(this).find("a").attr("href"),n=0,r=0;r<l.length&&-1!=(n=l.indexOf("_",n));r++)n++;if(level=r,level>t&&(a+="<ul>",i+="<ul>"),level<t){offset=t-level;for(r=0;r<offset;r++)a+="</ul></li>",i+="</ul></li>"}l=l.replace(/_/gi,""),a+="<li><a href='"+s+"'>"+l+"</a>",i+="<li><a href='"+s+"'>";for(r=0;r<level;r++)i+="";i+=l+"</a>",t=level});for(var l=0;t>=l;l++)a+="</ul>",i+="</ul>",0!=l&&(a+="</li>",i+="</li>");e("#pixel-menu .LinkList").html(i),e("#pixel-menu > .LinkList > ul").attr("id","pixel_menu"),e("#pixel_menu a").map(function(){var t=e(this).attr("href");-1!=(t=t.toLowerCase()).indexOf("[mega menu]")&&(e(this).addClass("mega-link"),e(this).attr("href","http://pixel-blossom.blogspot.com/search/label/"+e(this).text()+"?&max-results="+perPage))}),selectnav("pixel_menu"),e("#pixel-menu ul > li > ul").parent("li").addClass("hasSubmenu"),e("#pixel-menu .widget").attr("style","display:block!important;"),e("#pixel_menu a.mega-link").map(function(){var t=e(this),a=t.attr("href");if(a=a.toLowerCase(),t.hasClass("mega-link")){var i=t.text();e.ajax({url:"/feeds/posts/default/-/"+i+"?alt=json-in-script&max-results=4",type:"get",dataType:"jsonp",success:function(a){t.closest("li").addClass("isMega hasSubmenu");for(f=0;f<a.feed.link.length;f++){var l=a.feed.link[f],s=l.rel,n=l.type;if("alternate"==s&&"text/html"==n){var r=l.href+"?&max-results="+perPage;t.attr("href",r)}}var d=a.feed.openSearch$totalResults.$t,p=a.feed.openSearch$startIndex.$t,c=a.feed.openSearch$itemsPerPage.$t;if(d>4);else;var o=Math.ceil(d/c);if(a.feed.entry){var m="<ul";m=m+' data-itemnums="'+c+'" data-label="'+i+'" data-start="'+p+'" data-stages="'+o+'" data-cstage="1" data-tpst="'+d+'"',m+='><div class="mega-nav"><a class="mega-prev disable" href="javascript:;"><i class="ion-android-arrow-back"></i></a><a class="mega-next" href="javascript:;"><i class="ion-android-arrow-forward"></i></a></div><div class="pixel-mega-loading" style="display:none">\t<div class="pixel-loading-inner">  <div class="pixel-thecube">\t<div class="pixel-cube pixel-c1"></div>\t<div class="pixel-cube pixel-c2"></div>\t<div class="pixel-cube pixel-c4"></div>\t<div class="pixel-cube pixel-c3"></div>\t\t</div></div>  </div><div class="mega-inner row">';for(var f=0;f<a.feed.entry.length;f++){var u=a.feed.entry[f];if(u.media$thumbnail)-1!==(g=u.media$thumbnail.url).indexOf("/s72-c")&&(g=g.replace("/s72-c","/s1600")),-1!==g.indexOf("img.youtube.com")&&(g=g.replace("/default.jpg","/maxresdefault.jpg"));else var g="https://4.bp.blogspot.com/-wPwjv7-YYGY/Wc98wlDT8qI/AAAAAAAAAEE/mH8YkPl8qJAH9FMuFKcShQvXXYMmVyrIgCLcBGAs/s1600/notfound.png";for(var h=u.title.$t,x=0;x<u.link.length;x++)if("alternate"==u.link[x].rel)var v=u.link[x].href;m=m+'<div class="pixel-mega-item col-sm-3"><div class="pixel-m-thumb" style="background:url(\''+g+'\')"><a class="linkcover" href="'+v+'"></a></div><div class="pixel-text"><a href="'+v+'">'+h+"</a></div></div>"}m+="</div></ul>",t.after(function(){e(this).after(m);var t=e(this).closest(".isMega");t.find(".mega-prev").click(function(){var t=e(this).closest("ul");t.find(".pixel-mega-loading").fadeIn(0);var a=t.attr("data-label"),i=Number(t.attr("data-start")),l=Number(t.attr("data-cstage")),s=(Number(t.attr("data-stages")),Number(t.attr("data-itemnums")));if(i-=s,l-1<=1?e(this).addClass("disable"):e(this).removeClass("disable"),t.find(".mega-next").removeClass("disable"),l>1){var n="",r="/feeds/posts/default/-/"+a+"?alt=json-in-script&start-index="+i+"&max-results="+s;e.ajax({url:r,type:"get",dataType:"jsonp",success:function(e){if(t.attr("data-start",i),t.attr("data-cstage",l-1),e.feed.entry){for(var a=0;a<e.feed.entry.length;a++){var s=e.feed.entry[a];if(s.media$thumbnail)-1!==(r=s.media$thumbnail.url).indexOf("/s72-c")&&(r=r.replace("/s72-c","/s1600")),-1!==r.indexOf("img.youtube.com")&&(r=r.replace("/default.jpg","/maxresdefault.jpg"));else var r="https://4.bp.blogspot.com/-wPwjv7-YYGY/Wc98wlDT8qI/AAAAAAAAAEE/mH8YkPl8qJAH9FMuFKcShQvXXYMmVyrIgCLcBGAs/s1600/notfound.png";for(var d=s.title.$t,p=0;p<s.link.length;p++)if("alternate"==s.link[p].rel)var c=s.link[p].href;n=n+'<div class="pixel-mega-item col-sm-3"><div class="pixel-m-thumb" style="background:url(\''+r+'\')"><a class="linkcover" href="'+c+'"></a></div><div class="pixel-text"><a href="'+c+'">'+d+"</a></div></div>"}t.find(".mega-inner").html(n),setTimeout(function(){t.find(".pixel-mega-loading").fadeOut()},1e3)}},error:function(e){setTimeout(function(){t.find(".pixel-mega-loading").fadeOut()},1e3)}})}}),t.find(".mega-next").click(function(){var t=e(this).closest("ul");t.find(".pixel-mega-loading").fadeIn(0);var a=t.attr("data-label"),i=Number(t.attr("data-start")),l=Number(t.attr("data-cstage")),s=Number(t.attr("data-stages")),n=Number(t.attr("data-itemnums"));if(i+=n,l+1==s?e(this).addClass("disable"):e(this).removeClass("disable"),l>=1?t.find(".mega-prev").removeClass("disable"):t.find(".mega-prev").addClass("disable"),s>l){var r="",d="/feeds/posts/default/-/"+a+"?alt=json-in-script&start-index="+i+"&max-results="+n;e.ajax({url:d,type:"get",dataType:"jsonp",success:function(e){if(t.attr("data-start",i),t.attr("data-cstage",l+1),e.feed.entry){for(var a=0;a<e.feed.entry.length;a++){var s=e.feed.entry[a];if(s.media$thumbnail)-1!==(n=s.media$thumbnail.url).indexOf("/s72-c")&&(n=n.replace("/s72-c","/s1600")),-1!==n.indexOf("img.youtube.com")&&(n=n.replace("/default.jpg","/maxresdefault.jpg"));else var n="https://4.bp.blogspot.com/-wPwjv7-YYGY/Wc98wlDT8qI/AAAAAAAAAEE/mH8YkPl8qJAH9FMuFKcShQvXXYMmVyrIgCLcBGAs/s1600/notfound.png";for(var d=s.title.$t,p=0;p<s.link.length;p++)if("alternate"==s.link[p].rel)var c=s.link[p].href;r=r+'<div class="pixel-mega-item col-sm-3"><div class="pixel-m-thumb" style="background:url(\''+n+'\')"><a class="linkcover" href="'+c+'"></a></div><div class="pixel-text"><a href="'+c+'">'+d+"</a></div></div>"}t.find(".mega-inner").html(r),setTimeout(function(){t.find(".pixel-mega-loading").fadeOut()},1e3)}},error:function(e){setTimeout(function(){t.find(".pixel-mega-loading").fadeOut()},1e3)}})}})})}},error:function(e){}})}}),e(".FeaturedPost .post-summary").map(function(){if(e(this).find(".image")){var t=e(this).find(".image").attr("src");e(this).attr("style","background-image:url("+t+");")}e(this).append("<div class='overlay'></div>")})}),$(document).ready(function(){selectnav("nav")}),$(document).ready(function(){var e=$("#pixel-sidebar-tabs #tabside1 .widget h2").text();$(".pixel-sidebar-tab .item-1 a").text(e);var t=$("#pixel-sidebar-tabs #tabside2 .widget h2").text();$(".pixel-sidebar-tab .item-2 a").text(t);var a=$("#pixel-sidebar-tabs #tabside3 .widget h2").text();$(".pixel-sidebar-tab .item-3 a").text(a),$("#tabside1 .widget h2,#tabside2 .widget h2,#tabside3 .widget h2,#tabside1 .widget-title,#tabside2 .widget-title,#tabside3 .widget-title").remove(),$(this).find(".pixel-sidebar-tab li").addClass("pixel-hide"),$(".pixel-sidebar-tabs").tabslet({mouseevent:"click",attribute:"href",animation:!0}),0===$(".pixel-sidebar-tabs .widget").length&&$(".pixel-sidebar-tabs").remove()}),$(".post-home-image .post-thumb a").attr("style",function(e,t){return t.match("hqdefault.jpg")?t.replace("/hqdefault.jpg","/mqdefault.jpg"):t.match("default.jpg")?t.replace("/default.jpg","/mqdefault.jpg"):t.match("s72-c")?t.replace("/s72-c","/s1600"):t.match("w72-h72-p-nu")?t.replace("/w72-h72-p-nu","/s1600"):t.replace("https://4.bp.blogspot.com/-wPwjv7-YYGY/Wc98wlDT8qI/AAAAAAAAAEE/mH8YkPl8qJAH9FMuFKcShQvXXYMmVyrIgCLcBGAs/s1600/notfound.png","https://4.bp.blogspot.com/-wPwjv7-YYGY/Wc98wlDT8qI/AAAAAAAAAEE/mH8YkPl8qJAH9FMuFKcShQvXXYMmVyrIgCLcBGAs/s1600/notfound.png")}),$(".PopularPosts ul li img").attr("src",function(e,t){return t.match("hqdefault.jpg")?t.replace("/hqdefault.jpg","/mqdefault.jpg"):t.match("default.jpg")?t.replace("/default.jpg","/mqdefault.jpg"):t.match("s72-c")?t.replace("/s72-c","/s1600"):t.match("w72-h72-p-nu")?t.replace("/w72-h72-p-nu","/s1600"):t.replace("https://4.bp.blogspot.com/-wPwjv7-YYGY/Wc98wlDT8qI/AAAAAAAAAEE/mH8YkPl8qJAH9FMuFKcShQvXXYMmVyrIgCLcBGAs/s1600/notfound.png","https://4.bp.blogspot.com/-wPwjv7-YYGY/Wc98wlDT8qI/AAAAAAAAAEE/mH8YkPl8qJAH9FMuFKcShQvXXYMmVyrIgCLcBGAs/s1600/notfound.pngg")}),$(document).ready(function(){$('span[name="author-social"]').before($(".post-author-social .widget-content").html()),$(".post-author-social .widget-content").html(""),$('span[name="author-post"]').before($(".post-author-widget .widget-content").html()),$(".post-author-widget .widget-content").html(""),$('a[name="ad-post-top"]').before($("#pixel-advert-2 .widget-content").html()),$("#pixel-advert-2 .widget-content").html(""),$('a[name="ad-post-bottom"]').before($("#pixel-advert-3 .widget-content").html()),$("#pixel-advert-3 .widget-content").html("")}),$(".pixel_featured_widget .HTML .widget-content").map(function(){var e=$(this).find("span").attr("data-label"),t=($(this).find("span").attr("data-no"),$(this).prev("h2").text(),$(this).parent().attr("id"));$(this).find("span").attr("data-type").match("pixelfeatured")&&$.ajax({url:"/feeds/posts/default/-/"+e+"?alt=json-in-script&max-results=3",type:"get",dataType:"jsonp",success:function(a){var i="",l='<div class="pixel-featured">';if(a.feed.entry)for(var s=0;s<a.feed.entry.length;s++){for(var n=0;n<a.feed.entry[s].link.length;n++)if("alternate"==a.feed.entry[s].link[n].rel){i=a.feed.entry[s].link[n].href;break}if("content"in a.feed.entry[s])r=a.feed.entry[s].content.$t;else if("summary"in b_rc)r=a.feed.entry[s].summary.$t;else var r="";var d=/<\S[^>]*>/g;(r=r.replace(d,"")).length>120&&(r=r.substring(0,100)+"...");var p=a.feed.entry[s].title.$t,c=a.feed.entry[s].category[0].term,o=a.feed.entry[s].author[0].name.$t,m=a.feed.entry[s].published.$t,f=m.substring(0,4),u=m.substring(5,7),g=m.substring(8,10),h=month_format[parseInt(u,10)]+" "+g+", "+f,x=a.feed.entry[s].content.$t,v=$("<div>").html(x);if(x.indexOf("//www.youtube.com/embed/")>-1)b=a.feed.entry[s].media$thumbnail.url;else if(x.indexOf("<img")>-1)b=v.find("img:first").attr("src");else var b=no_image;l+=0==s?'<div class="pixel-hero"><div class="pixel-featured-image"><div class="pixelfeatured-thumb"><a class="blsm-img" href="'+i+'" style="background:url('+b+') no-repeat center center;background-size: cover"><span class="pixel-trap"/></a></div><div class="pixel-hero-content"><div class="pixel-label"><a class="icon '+c+'" href="/search/label/'+c+'">'+c+'</a></div><h3 class="pixelfeatured-title"><a href="'+i+'">'+p+'</a></h3><span class="pixel-author">'+o+'</span><span class="pixel-time">'+h+"</span></div></div></div>":'<div class="pixel-secondary"><div class="pixelfeatured-thumb"><a class="pixel-thumb" href="'+i+'" style="background:url('+b+') no-repeat center center;background-size: cover"><span class="pixel-trap"/></a></div><div class="pixel-content"><div class="pixel-label"><a class="icon '+c+'" href="/search/label/'+c+'">'+c+'</a></div><h3 class="pixelfeatured-title"><a href="'+i+'">'+p+'</a></h3><span class="pixel-author">'+o+'</span><span class="pixel-time">'+h+'</span></div><div class="clear"/></div>'}else l=l+'<style>.pixel-empty-panel img{max-width: 600px; width:100%}.pixel-empty-panel{text-align: center;}.pixel-empty-text h3{font-weight: 600;font-size:18px;line-height: 24px;margin-bottom:50px;}</style><div class="pixel-empty-panel"><div class="pixel-empty-thumb"><img src="https://1.bp.blogspot.com/-FCuCIgXt2v8/WdDfhsYYoZI/AAAAAAAAAhk/X-ke9mcD1KsrOnsxV2z15nup1TkXkw36wCLcBGAs/s1600/trpgrid.png"></div><div class="pixel-empty-text"><h3>No posts found for label : "'+e+'". <br/> <span class="pixel-small">You can disable this widget by removing all the widget content from layout tab.</span></h3></div></div>';l+="</div>",$(".pixel_featured_widget .HTML .widget-content").each(function(){$(this).parent().attr("id")==t&&($(this).html(l),$(this).parent().addClass("pixelfeatured"),$(this).parent().addClass("pixl"),$(".pixel_featured_widget").addClass("pixel-implied").removeClass("pixel-initiate"),$(this).find(".pixel-thumb,.blsm-img").each(function(){$(this).attr("style",function(e,t){return t.replace("/default.jpg","/mqdefault.jpg")}).attr("style",function(e,t){return t.replace("s72-c","s1600")})}))})}})}),$(".pixel-widetize .HTML .widget-content span.pixel-cmnt").each(function(){var e=$(this).attr("data-no");$.ajax({url:"/feeds/comments/default?alt=json-in-script&max-results="+e,type:"get",dataType:"jsonp",success:function(t){var a="",i='<div class="pixel-comments">';if(t.feed.entry)for(var l=0;l<t.feed.entry.length&&l!=t.feed.entry.length;l++){for(var s=0;s<t.feed.entry[l].link.length;s++)if("alternate"==t.feed.entry[l].link[s].rel){a=t.feed.entry[l].link[s].href;break}if("content"in t.feed.entry[l])n=t.feed.entry[l].content.$t;else if("summary"in b_rc)n=t.feed.entry[l].summary.$t;else var n="";var r=/<\S[^>]*>/g;(n=n.replace(r,"")).length>70&&(n=n.substring(0,50)+"...");var d=t.feed.entry[l].author[0].name.$t,p=t.feed.entry[l].author[0].gd$image.src;if(p.match("http://img1.blogblog.com/img/blank.gif"))c="http://img1.blogblog.com/img/anon36.png";else if(p.match("http://img2.blogblog.com/img/b16-rounded.gif"))c="http://img1.blogblog.com/img/anon36.png";else var c=p;i+='<div class="pixel-comment"><div class="pixel-comment-profile"><img class="pixel-comment-thumb" src="'+c+'"/></div><a href="'+a+'">'+d+'</a><span>"'+n+'"</span></div>'}else i+='<style>.pixel-empty-panel img{max-width: 600px; width:100%}.pixel-empty-panel{text-align: center;}.pixel-empty-text h3{font-weight: 600;font-size:18px;line-height: 24px;margin-bottom:50px;}.bgr{background: rgb(236,239,241);}.bgr{box-sizing: border-box;padding:5px 10px;}</style><div class="pixel-empty-panel bgr"><div class="pixel-empty-thumb"><img src="https://4.bp.blogspot.com/-wPwjv7-YYGY/Wc98wlDT8qI/AAAAAAAAAEE/mH8YkPl8qJAH9FMuFKcShQvXXYMmVyrIgCLcBGAs/s1600/notfound.png"></div><div class="pixel-empty-text"><h3>No comments! <br/></h3></div></div>';i+='</div><div class="clear"/>',$(".pixel-widetize .HTML .widget-content span.pixel-cmnt").each(function(){$(this).attr("data-no")==e&&$(this).parent().html(i)})}})}),$(".pixel-widetize .HTML .widget-content span.pixel-recent").each(function(){var e=$(this).attr("data-no");$.ajax({url:"/feeds/posts/default?alt=json-in-script&max-results="+e,type:"get",dataType:"jsonp",success:function(t){var a="",i='<div class="pixel-recent">';if(t.feed.entry)for(var l=0;l<t.feed.entry.length;l++){for(var s=0;s<t.feed.entry[l].link.length;s++)if("alternate"==t.feed.entry[l].link[s].rel){a=t.feed.entry[l].link[s].href;break}var n=t.feed.entry[l].title.$t,r=(t.feed.entry[l].category[0].term,t.feed.entry[l].author[0].name.$t),j=t.feed.entry[l].category[0].term,d=t.feed.entry[l].published.$t,p=d.substring(0,4),c=d.substring(5,7),o=d.substring(8,10),m=month_format[parseInt(c,10)]+" "+o+", "+p,f=t.feed.entry[l].content.$t,u=$("<div>").html(f);if(f.indexOf("//www.youtube.com/embed/")>-1)g=t.feed.entry[l].media$thumbnail.url.replace("/default.jpg","/mqdefault.jpg");else if(f.indexOf("<img")>-1)g=u.find("img:first").attr("src").replace("s72-c","s1600");else var g=no_image;i+='<div class="pixel-recent-item"><a class="pixel-recent-thumb" href="'+a+'" style="background:url('+g+') no-repeat center center;background-size: cover"><span class="pixel-trap"/></a><div class="pixel-recent-content"><div class="pixel-label"><a class="icon ' + j + '" href="/search/label/' + j + '">' + j + '</a></div><h3 class="pixel-recent-title"><a href="'+a+'">'+n+'</a></h3><span class="pixel-author">'+r+'</span><span class="pixel-time">'+m+"</span></div></div>"}else i+='<style>.pixel-empty-panel img{max-width: 600px; width:100%}.pixel-empty-panel{text-align: center;}.pixel-empty-text h3{font-weight: 600;font-size:18px;line-height: 24px;margin-bottom:50px;}.bgr{background: rgb(236,239,241);}.bgr{box-sizing: border-box;padding:5px 10px;}</style><div class="pixel-empty-panel bgr"><div class="pixel-empty-thumb"><img src="https://4.bp.blogspot.com/-wPwjv7-YYGY/Wc98wlDT8qI/AAAAAAAAAEE/mH8YkPl8qJAH9FMuFKcShQvXXYMmVyrIgCLcBGAs/s1600/notfound.png"></div><div class="pixel-empty-text"><h3>No Posts found! <br/></h3></div></div>';i+="</div>",$(".pixel-widetize .HTML .widget-content span.pixel-recent").each(function(){$(this).attr("data-no")==e&&$(this).parent().html(i)})}})}),$(".pixel-widetize .HTML .widget-content span.pixel-tagswid").each(function(){var e=$(this).attr("data-label"),t=$(this).attr("data-no");$.ajax({url:"/feeds/posts/default/-/"+e+"?alt=json-in-script&max-results="+t,type:"get",dataType:"jsonp",success:function(t){var a="",i='<div class="pixel-recent">';if(t.feed.entry)for(var l=0;l<t.feed.entry.length;l++){for(var s=0;s<t.feed.entry[l].link.length;s++)if("alternate"==t.feed.entry[l].link[s].rel){a=t.feed.entry[l].link[s].href;break}var n=t.feed.entry[l].title.$t,r=(t.feed.entry[l].category[0].term,t.feed.entry[l].author[0].name.$t),j=t.feed.entry[l].category[0].term,d=t.feed.entry[l].published.$t,p=d.substring(0,4),c=d.substring(5,7),o=d.substring(8,10),m=month_format[parseInt(c,10)]+" "+o+", "+p,f=t.feed.entry[l].content.$t,u=$("<div>").html(f);if(f.indexOf("//www.youtube.com/embed/")>-1)g=t.feed.entry[l].media$thumbnail.url.replace("/default.jpg","/mqdefault.jpg");else if(f.indexOf("<img")>-1)g=u.find("img:first").attr("src").replace("s72-c","s1600");else var g=no_image;i+='<div class="pixel-recent-item"><a class="pixel-recent-thumb" href="'+a+'" style="background:url('+g+') no-repeat center center;background-size: cover"><span class="pixel-trap"/></a><div class="pixel-recent-content"><div class="pixel-label"><a class="icon ' + j + '" href="/search/label/' + j + '">' + j + '</a></div><h3 class="pixel-recent-title"><a href="'+a+'">'+n+'</a></h3><span class="pixel-author">'+r+'</span><span class="pixel-time">'+m+"</span></div></div>"}else i+='<style>.pixel-empty-panel img{max-width: 600px; width:100%}.pixel-empty-panel{text-align: center;}.pixel-empty-text h3{font-weight: 600;font-size:18px;line-height: 24px;margin-bottom:50px;}.bgr{background: rgb(236,239,241);}.bgr{box-sizing: border-box;padding:5px 10px;}</style><div class="pixel-empty-panel bgr"><div class="pixel-empty-thumb"><img src="https://4.bp.blogspot.com/-wPwjv7-YYGY/Wc98wlDT8qI/AAAAAAAAAEE/mH8YkPl8qJAH9FMuFKcShQvXXYMmVyrIgCLcBGAs/s1600/notfound.png"></div><div class="pixel-empty-text"><h3>No Posts found! <br/></h3></div></div>';i+="</div>",$(".pixel-widetize .HTML .widget-content span.pixel-tagswid").each(function(){$(this).attr("data-label")==e&&$(this).parent().html(i)})}})}),$(document).ready(function(){$('span[name="author-social"]').before($(".post-author-social .widget-content").html()),$(".post-author-social .widget-content").html(""),$('span[name="author-post"]').before($(".post-author-widget .widget-content").html()),$(".post-author-widget .widget-content").html("")}),$(".blsm-comment").click(function(){$("html, body").animate({scrollTop:$("#pixel-comment-placer").offset().top},1e3)});
  //]]>
 </script>
 
@@ -3323,15 +3374,14 @@ $("#sidebar-wrapper").stick_in_parent();
 });
 //]]>
 </script>
-  <div id='fb-root'><script src='https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v2.0' type='text/javascript'/></div>
 <script>//<![CDATA[
-(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.10";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.1&appId=232133470787464&autoLogAppEvents=1';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
 //]]>
 </script>
     <b:if cond='data:blog.url == data:blog.homepageUrl'>
@@ -3344,11 +3394,22 @@ var $=jQuery;$(".custwid .pixel-widget").map(function(){function e(e,i){return e
 <script type='text/javascript'>
 //<![CDATA[
 var $=jQuery;$(".sidebar .widget h2").wrap('<div class="pixel-widwrap"></div>');
-//]]>
-</script>
-<script type='text/javascript'>
-//<![CDATA[
 var $=jQuery;$("#pixel-footer .widget h2").wrap('<div class="pixel-widwrap"></div>');
+
+// Code for Comment Tabs
+
+$(document).ready(function() {
+    $(".cmm-tabs").simplyTab({
+        active: 1,
+        fx: "fade",
+        showSpeed: 400,
+        hideSpeed: 400
+    });
+    $('.blogger-tab').append($('#comments'));
+    $(".cmm-tabs.simplyTab .wrap-tab").wrap("<div class='cmm-tabs-header'/>");
+    $('.cmm-tabs-header').prepend('<h3><h8>Post </h8>Comment<h9>s</h9></h3>')
+});
+
 //]]>
 </script>
 <!--Page Navigation Ends -->
