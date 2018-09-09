@@ -762,6 +762,23 @@ select#BlogArchive1_ArchiveMenu{width:100%;padding:10px;background:#f9f9f9}
 .PopularPosts ul{counter-reset:popularcount;margin:0;padding:0}
 .PopularPosts .item-thumbnail::before{background:rgba(0,0,0,0.3);bottom:0;content:"";height:100px;width:120px;left:0;right:0;margin:0 auto;position:absolute;z-index:3}
 
+/* Related Posts */
+#related-posts{margin-bottom:10px}
+#related-posts .related-text{display:none}
+.related li{width:32%;position:relative;overflow:hidden;float:left;display:block;box-sizing:border-box;margin:0 0 0 2%;padding:0}
+.related li:first-child,.related li:nth-child(4){margin-left:0}
+.related li h3{margin-top:0}
+.related-thumb{width:100%;height:120px;overflow:hidden;border-radius:2px}
+.related li .related-img{width:100%;height:120px;display:block;transition:all .3s ease-out!important;-webkit-transition:all .3s ease-out!important;-moz-transition:all .3s ease-out!important;-o-transition:all .3s ease-out!important}
+.related li .related-img:hover{-webkit-transform:scale(1.1) rotate(-1.5deg)!important;-moz-transform:scale(1.1) rotate(-1.5deg)!important;transform:scale(1.1) rotate(-1.5deg)!important;transition:all .3s ease-out!important;-webkit-transition:all .3s ease-out!important;-moz-transition:all .3s ease-out!important;-o-transition:all .3s ease-out!important}
+.related-title a{font-size:15px;line-height:1.35em;padding:10px 5px 10px 0;font-weight:400;color:#010101;display:block}
+.related-title a:hover{color:#777;text-decoration:underline}
+.sf-module-title {display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;-webkit-flex-flow: row nowrap;flex-flow: row nowrap;margin: 1rem 0 25px;width: 100%;font-size: 1rem;-webkit-align-items: center;align-items: center;}
+.sf-module-title:before, .sf-module-title:after {display: inline-block;content: " ";-webkit-flex: 1 0;-ms-flex: 1 0;flex: 1 0;height: 1px;}
+.sf-module-title.sf-has-line:before, .sf-module-title.sf-has-line:after {background-color: #d7d7d7;}
+.sf-entry-singular .sf-module-title.sf-has-line:before, .sf-entry-singular .sf-module-title.sf-has-line:after {background-color: transparent;border-top: 1px solid #d7d7d7;}
+.sf-module-title .sf-title {display: inline-block;-webkit-flex: none;-ms-flex: none;flex: none;margin: 0;padding: 0 20px;text-transform: uppercase;font-weight: 900;font-size: inherit;white-space: nowrap;font-family: "Roboto", sans-serif;}
+
 /* Comment Widget */
 .pixel-comments .pixel-comment .pixel-comment-profile{position:relative;overflow:hidden;padding:0;width:55px;height:55px;float:left;margin:0 10px 0 0}
 .pixel-comments .pixel-comment{background:none!important;clear:both;list-style:none;word-break:break-all;display:block;border-top:1px solid $(lightcolor);border-bottom:0!important;overflow:hidden;margin:0;padding:10px 0}
@@ -2253,7 +2270,19 @@ $('.pixel-navigation').after($('#hpick').html());
     <div class='clearfix'/>
 </div>
 
-  <div class='pixel-post-author'>
+<div class='sf-module-title sf-center sf-has-line'><h2 class='sf-title'>You May Also Like</h2></div>
+
+<div id='related-posts'>
+    <b:if cond='data:post.labels'>
+      <b:loop values='data:post.labels' var='label'>
+        <b:if cond='data:label.isLast == &quot;true&quot;'>
+          <data:label.name/>
+        </b:if>
+      </b:loop>
+    </b:if>
+</div>
+
+<div class='pixel-post-author'>
 <div class='box box-author'>
   <div class='post-author'>
     <div class='author-img'>
@@ -3416,6 +3445,57 @@ $(document).ready(function() {
     $('.blogger-tab').append($('#comments'));
     $(".cmm-tabs.simplyTab .wrap-tab").wrap("<div class='cmm-tabs-header'/>");
     $('.cmm-tabs-header').prepend('<h3><h8>Post </h8>Comment<h9>s</h9></h3>')
+});
+
+// Code for Related Posts
+
+$("#related-posts").each(function() {
+  var g = $(this).html();
+  var related_number = 3;
+  $.ajax({
+    url: "/feeds/posts/default/-/" + g + "?alt=json-in-script&max-results=" + related_number,
+    type: 'get',
+    dataType: "jsonp",
+    success: function(data) {
+      var posturl = "";
+      var htmlcode = '<div class="related">';
+      for (var i = 0; i < data.feed.entry.length; i++) {
+        for (var j = 0; j < data.feed.entry[i].link.length; j++) {
+          if (data.feed.entry[i].link[j].rel == "alternate") {
+            posturl = data.feed.entry[i].link[j].href;
+            break
+          }
+        }
+        var posttitle = data.feed.entry[i].title.$t;
+        var content = data.feed.entry[i].content.$t;
+        var $content = $('<div>').html(content);
+        if (content.indexOf("http://www.youtube.com/embed/") > -1 || content.indexOf("https://www.youtube.com/embed/") > -1) {
+          var src2 = data.feed.entry[i].media$thumbnail.url;
+          var thumb = '<a class="related-img" href="' + posturl + '" style="background:url(' + src2 + ') no-repeat center center;background-size: cover"/>'
+        } else if (content.indexOf("<img") > -1) {
+          var src = $content.find('img:first').attr('src');
+          var thumb = '<a class="related-img" href="' + posturl + '" style="background:url(' + src + ') no-repeat center center;background-size: cover"/>'
+        } else {
+          var thumb = '<a class="related-img" href="' + posturl + '" style="background:url(' + no_image_url + ') no-repeat center center;background-size: cover"/>'
+        }
+        htmlcode += '<li><div class="related-thumb">' + thumb + '</div><h3 class="related-title"><a href="' + posturl + '">' + posttitle + '</a></h3></li>'
+      }
+      htmlcode += '</div><div class="clear"/>';
+      $("#related-posts").html(htmlcode);
+      $('.related-img').each(function() {
+        $(this).attr('style', function(i, src) {
+          return src.replace('/default.jpg', '/mqdefault.jpg')
+        }).attr('style', function(i, src) {
+          return src.replace('s72-c', 's1600')
+        })
+      });
+      $("p.trans").each(function() {
+        var e = $(this).text();
+        var t = $(this).attr("data-tran");
+        $("#pages-wrap *").replaceText(e, t)
+      })
+    }
+  })
 });
 
 //]]>
